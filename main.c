@@ -1,40 +1,31 @@
 #include "fdf.h"
 #include <stdio.h>
 
-int keyboard(int key)
+int main(int ac, char **av)
 {
-    if (key == 53)
-    {
-        exit(0);
-    }
-    else
-        write(1, "PRESS ESC", 9);
+    t_okno		window;
+	t_stroka	*argv_postrochno;
+	int			fd;
+    
+    if (ac != 2 || (!(fd = open(av[1], O_RDONLY))))
+        pizdec('a');
+    window.discriptor = mlx_init();
+    window.win = mlx_new_window(window.discriptor, WIDTH, HIGHT, NAME);
+	fdf_read(fd, window, &argv_postrochno);
+    mlx_hook(window.win, 2, 0, keyboard, 0);
+    mlx_loop(window.discriptor);
+    zbs();
     return (0);
 }
 
-int main(void)
+void    pizdec(char i)
 {
-    void *a;
-    void *win;
-    char name[] = "new window";
-    int i;
-    int j;
-    
-    i = 0;
-    a = mlx_init();
-    win = mlx_new_window(a, 1000, 1000, name);
-    while (i < 100)
-    {
-        j = 0;
-        while(j < 100)
-        {
-            mlx_pixel_put(a, win, i, j, 0xFFFFFF);
-            j++;
-        }
-        i++;
-    }
-    mlx_string_put(a, win, i, j, 0xFFFFFF, "text");
-    mlx_hook(win, 2, 0, keyboard, 0);
-    mlx_loop(a);
-    return (0);
+    write(1, "error ", 6);
+	write(1, &i, 1);
+    exit(0);
+}
+
+void    zbs(void)
+{
+    exit(0);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+         #
+#    By: dbruen <dbruen@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/07 17:58:25 by tkelsie           #+#    #+#              #
-#    Updated: 2019/04/21 13:36:44 by tkelsie          ###   ########.fr        #
+#    Updated: 2019/07/17 18:37:32 by dbruen           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,8 @@ FILES = ./ft_atoi.c \
 ./ft_lst_push_back.c \
 ./ft_lst_reverse.c \
 ./ft_max.c \
-./ft_maxsingle.c
+./ft_maxsingle.c \
+./ft_counter.c
 
 OFILES			= $(FILES:./%.c= %.o)
 

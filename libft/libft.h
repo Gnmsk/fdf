@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dbruen <dbruen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 17:59:01 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/04/19 21:47:48 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/17 18:38:41 by dbruen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int					ft_tolower(int c);
 int					ft_toupper(int c);
 int					ft_max(int *a, int *b, int size);
 int					ft_maxsingle(int *a, int size);
+int					counter(char *s, int ch);
 
 void				ft_putchar(char c);
 void				ft_putnbr(int n);

@@ -11,7 +11,7 @@ $(NAME):
 	gcc $(FLAGS) -c 
 
 mac:
-	gcc -o fdf main.c -L./minilibx_macos -lmlx -framework OpenGL -framework AppKit
+	gcc -o fdf main.c read.c keyboard.c get_next_line.c struct_create.c libft/libft.a -L./minilibx_macos -lmlx -framework OpenGL -framework AppKit
 
 clean:
 fclean: clean
