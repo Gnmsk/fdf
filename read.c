@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:23 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/18 14:46:09 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/18 14:48:52 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int		*fdf_cords_int(t_stroka *tmp, int size)
 	int			i;
 	int			k;
 
-	cords = (int *)malloc(sizeof(int) * size);
+	if (!(cords = (int *)malloc(sizeof(int) * size)))
+		pizdec('d');
 	k = 0;
 	while (tmp)
 	{
