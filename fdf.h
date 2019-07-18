@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/18 14:42:46 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/18 14:58:47 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ void				stroka_push_front(t_stroka **list, char **data);
 void				stroka_reverse(t_stroka **begin_list);
 int					keyboard(int key);
 int					*fdf_cords_int(t_stroka *argv_postrochno, int size);
+char				*fdf_cords_color(t_stroka *tmp, int size);
 
 #endif

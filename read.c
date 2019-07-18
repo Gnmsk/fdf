@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:23 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/18 14:50:43 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/18 15:02:17 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,9 @@ int		fdf_read(int fd, t_okno window, t_stroka **argv_postrochno)
 	}
 	stroka_reverse(&tmp);
 	*argv_postrochno = tmp;
-	fdf_cords_int(tmp, str_quantity * i);
 	ft_strdel(&argv);
+	fdf_cords_int(tmp, str_quantity * i);
+	fdf_cords_color(tmp, str_quantity * i);
 	return (str_quantity);
 }
 
@@ -59,5 +60,29 @@ int		*fdf_cords_int(t_stroka *tmp, int size)
 		printf("\n");
 		tmp = tmp->next;
 	}
+	return (cords);
+}
+
+char		*fdf_cords_color(t_stroka *tmp, int size)
+{
+	char		*cords;
+	int			i;
+	int			k;
+
+	if (!(cords = ft_strnew(size + 1)))
+		pizdec('d');
+	k = 0;
+	while (tmp)
+	{
+		i = 0;
+		while (tmp->data[i])
+		{
+			cords[k++] = (ft_atoi(tmp->data[i++]) > 0) ? 'r' : 'w';
+			printf("%c ", cords[k - 1]);
+		}
+		printf("\n");
+		tmp = tmp->next;
+	}
+	cords[k] = '\0';
 	return (cords);
 }
