@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:23 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/18 15:07:00 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/18 15:44:03 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int		fdf_read(int fd, t_okno window, t_stroka **argv_postrochno)
 	ft_strdel(&argv);
 	fdf_cords_int(tmp, str_quantity * i);
 	fdf_cords_color(tmp, str_quantity * i);
+	fdf_cords_point(tmp, str_quantity * i);
 	return (str_quantity);
 }
 
@@ -60,6 +61,7 @@ int		*fdf_cords_int(t_stroka *tmp, int size)
 		printf("\n");
 		tmp = tmp->next;
 	}
+	printf("\n");
 	return (cords);
 }
 
@@ -84,5 +86,37 @@ char	*fdf_cords_color(t_stroka *tmp, int size)
 		tmp = tmp->next;
 	}
 	cords[k] = '\0';
+	printf("\n");
+	return (cords);
+}
+
+t_point	**fdf_cords_point(t_stroka *tmp, int size)
+{
+	t_point		**cords;
+	int			i;
+	int			k;
+	int			y;
+
+	if (!(cords = (t_point **)malloc(sizeof(t_point *) * size)))
+		pizdec('e');
+	k = 0;
+	y = 0;
+	while (tmp)
+	{
+		i = 0;
+		while (tmp->data[i])
+		{
+			if (!(cords[k] = (t_point *)malloc(sizeof(t_point))))
+				pizdec('f');
+			cords[k]->z = ft_atoi(tmp->data[i]);
+			cords[k]->x = i;
+			cords[k]->y = y;
+			cords[k++]->color = (ft_atoi(tmp->data[i++]) > 0) ? 'r' : 'w';
+			printf("%d %d %d %c\n", cords[k-1]->x, cords[k-1]->y, cords[k-1]->z, cords[k-1]->color);
+		}
+		printf("\n");
+		tmp = tmp->next;
+		y++;
+	}
 	return (cords);
 }
