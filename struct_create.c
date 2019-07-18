@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:45 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/18 14:50:51 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/18 14:53:20 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ void		stroka_push_front(t_stroka **list, char **data)
 	first = *list;
 	*list = stroka_new(data);
 	if (first)
-	{
 		(*list)->next = first;
-	}
 }
 
 void		stroka_reverse(t_stroka **begin_list)
