@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:23 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/18 15:02:17 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/18 15:07:00 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		*fdf_cords_int(t_stroka *tmp, int size)
 	return (cords);
 }
 
-char		*fdf_cords_color(t_stroka *tmp, int size)
+char	*fdf_cords_color(t_stroka *tmp, int size)
 {
 	char		*cords;
 	int			i;
