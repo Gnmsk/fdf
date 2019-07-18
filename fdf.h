@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
+/*   Updated: 2019/07/18 14:42:46 by tkelsie          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FDF_H
 # define FDF_H
 
@@ -7,8 +19,8 @@
 # define NAME "fdf"
 
 
-#include "libft/libft.h"
-#include "mlx.h"
+# include "libft/libft.h"
+# include "mlx.h"
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/stat.h>
@@ -37,8 +49,8 @@ typedef struct		s_okno
 
 typedef	struct		s_stroka
 {
-	char	**data;
-	struct 	s_stroka *next;
+	char			**data;
+	struct s_stroka *next;
 }					t_stroka;
 
 typedef	struct		s_megastructura
@@ -46,14 +58,15 @@ typedef	struct		s_megastructura
 	int kotoriy_jdet_svoego_chasa;
 }					t_megastructura;
 
-int		get_next_line(const int fd, char **line);
-int		fdf_read(int fd, t_okno window, t_stroka **argv_postrochno);
-void	split_argv(char *argv, t_okno window);
-void	pizdec(char i);
-void	zbs(void);
-t_stroka	*stroka_new(char **content);
-void	stroka_push_front(t_stroka **list, char **data);
-void	stroka_reverse(t_stroka **begin_list);
-int keyboard(int key);
+int					get_next_line(const int fd, char **line);
+int					fdf_read(int fd, t_okno window, t_stroka **argv_postrochno);
+void				split_argv(char *argv, t_okno window);
+void				pizdec(char i);
+void				zbs(void);
+t_stroka			*stroka_new(char **content);
+void				stroka_push_front(t_stroka **list, char **data);
+void				stroka_reverse(t_stroka **begin_list);
+int					keyboard(int key);
+int					*fdf_cords_int(t_stroka *argv_postrochno, int size);
 
 #endif

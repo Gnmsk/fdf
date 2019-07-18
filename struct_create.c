@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   struct_create.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/18 14:17:45 by tkelsie           #+#    #+#             */
+/*   Updated: 2019/07/18 14:18:06 by tkelsie          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 t_stroka	*stroka_new(char **content)
@@ -11,7 +23,7 @@ t_stroka	*stroka_new(char **content)
 	return (l);
 }
 
-void	stroka_push_front(t_stroka **list, char **data)
+void		stroka_push_front(t_stroka **list, char **data)
 {
 	t_stroka *first;
 
@@ -23,7 +35,7 @@ void	stroka_push_front(t_stroka **list, char **data)
 	}
 }
 
-void	stroka_reverse(t_stroka **begin_list)
+void		stroka_reverse(t_stroka **begin_list)
 {
 	t_stroka *third;
 	t_stroka *second;

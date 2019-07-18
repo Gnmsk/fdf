@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/07/18 14:18:22 by tkelsie           #+#    #+#              #
+#    Updated: 2019/07/18 14:18:25 by tkelsie          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = fdf
 MLX = -L./minilibx_macos -lmlx -framework OpenGL -framework AppKit
 FLAGS = -Wall -Wextra -Werror 
