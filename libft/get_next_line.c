@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dbruen <dbruen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/13 19:08:57 by dbruen            #+#    #+#             */
-/*   Updated: 2019/07/18 14:15:07 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/19 17:21:37 by dbruen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "libft.h"
 
 static	char		*get_line(char **curr_data)
 {

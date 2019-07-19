@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dbruen <dbruen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/18 15:41:07 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/19 17:27:40 by dbruen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,6 @@
 # include <sys/stat.h>
 # include <stdio.h>
 
-typedef struct		s_gnllist
-{
-	int					fd;
-	char				*data;
-	struct s_gnllist	*next;
-}					t_gnllist;
-
 typedef	struct		s_point
 {
 	int	x;
@@ -41,11 +34,12 @@ typedef	struct		s_point
 	int color;
 }					t_point;
 
-typedef struct		s_okno
+typedef struct		s_line
 {
-	void *discriptor;
-	void *win;
-}					t_okno;
+	t_point		a;
+	t_point		b;
+	struct	s_line *next;
+}					t_line;
 
 typedef	struct		s_stroka
 {
@@ -53,14 +47,22 @@ typedef	struct		s_stroka
 	struct s_stroka *next;
 }					t_stroka;
 
-typedef	struct		s_megastructura
+typedef	struct		s_mega
 {
-	int kotoriy_jdet_svoego_chasa;
-}					t_megastructura;
+	void		*discriptor;
+	void		*win;
+	t_point		**coords;
+	int			zoom;
+	void		*img;
+	char		*data_adress;
+	int		bits_per_pixel;
+	int		size_line;
+	int		endian;
+
+}					t_mega;
 
 int					get_next_line(const int fd, char **line);
-int					fdf_read(int fd, t_okno window, t_stroka **argv_postrochno);
-void				split_argv(char *argv, t_okno window);
+t_point				**fdf_read(int fd);
 
 int					keyboard(int key);
 void				pizdec(char i);
@@ -69,9 +71,6 @@ void				zbs(void);
 t_stroka			*stroka_new(char **content);
 void				stroka_push_front(t_stroka **list, char **data);
 void				stroka_reverse(t_stroka **begin_list);
-
-int					*fdf_cords_int(t_stroka *argv_postrochno, int size);
-char				*fdf_cords_color(t_stroka *tmp, int size);
 t_point				**fdf_cords_point(t_stroka *tmp, int size);
 
 #endif

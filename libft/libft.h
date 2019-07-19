@@ -6,12 +6,13 @@
 /*   By: dbruen <dbruen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 17:59:01 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/17 18:38:41 by dbruen           ###   ########.fr       */
+/*   Updated: 2019/07/19 17:23:49 by dbruen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define BUFF_SIZE 20
 
 # include <string.h>
 # include <stdlib.h>
@@ -23,6 +24,13 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_gnllist
+{
+	int					fd;
+	char				*data;
+	struct s_gnllist	*next;
+}					t_gnllist;
 
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
@@ -100,5 +108,7 @@ void const *data, size_t size);
 void				ft_lst_push_back(t_list **list, \
 void const *data, size_t size);
 void				ft_lst_reverse(t_list **begin_list);
+
+int					get_next_line(const int fd, char **line);
 
 #endif

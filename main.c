@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dbruen <dbruen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:16:09 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/18 14:17:16 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/19 17:19:02 by dbruen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,18 @@
 
 int		main(int ac, char **av)
 {
-	t_okno		window;
-	t_stroka	*argv_postrochno;
+	t_mega megastruct;
 	int			fd;
 
 	if (ac != 2 || (!(fd = open(av[1], O_RDONLY))))
 		pizdec('a');
-	window.discriptor = mlx_init();
-	window.win = mlx_new_window(window.discriptor, WIDTH, HIGHT, NAME);
-	fdf_read(fd, window, &argv_postrochno);
-	mlx_hook(window.win, 2, 0, keyboard, 0);
-	mlx_loop(window.discriptor);
+	megastruct.discriptor = mlx_init();
+	megastruct.win = mlx_new_window(megastruct.discriptor, WIDTH, HIGHT, NAME);
+	megastruct.coords = fdf_read(fd);
+	megastruct.img = mlx_new_image(megastruct.discriptor, WIDTH, HIGHT);
+	megastruct.data_adress = mlx_get_data_addr(megastruct.img, &megastruct.bits_per_pixel, &megastruct.size_line, &megastruct.endian);
+	mlx_hook(megastruct.win, 2, 0, keyboard, 0);
+	mlx_loop(megastruct.discriptor);
 	zbs();
 	return (0);
 }

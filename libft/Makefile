@@ -6,7 +6,7 @@
 #    By: dbruen <dbruen@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/07 17:58:25 by tkelsie           #+#    #+#              #
-#    Updated: 2019/07/17 18:37:32 by dbruen           ###   ########.fr        #
+#    Updated: 2019/07/19 17:22:44 by dbruen           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,8 @@ FILES = ./ft_atoi.c \
 ./ft_lst_reverse.c \
 ./ft_max.c \
 ./ft_maxsingle.c \
-./ft_counter.c
+./ft_counter.c \
+./get_next_line.c
 
 OFILES			= $(FILES:./%.c= %.o)
 
