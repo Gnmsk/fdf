@@ -14,8 +14,8 @@
 # define FDF_H
 
 # define BUFF_SIZE 20
-# define WIDTH 2560
-# define HIGHT 1440
+# define WIDTH 800
+# define HIGHT 800
 # define NAME "fdf"
 
 

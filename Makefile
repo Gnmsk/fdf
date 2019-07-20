@@ -25,6 +25,9 @@ $(NAME):
 mac:
 	gcc -o fdf main.c read.c keyboard.c struct_create.c libft/libft.a -L./minilibx_macos -lmlx -framework OpenGL -framework AppKit
 
+linux:
+	gcc -o linux main.c read.c keyboard.c struct_create.c libft/libft.a -L/usr/X11/lib /usr/X11/lib/libmlx.a -lXext -lX11
+
 clean:
 fclean: clean
 re: fclean all

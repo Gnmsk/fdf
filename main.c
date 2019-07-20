@@ -13,6 +13,7 @@
 
 #include "fdf.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 int		main(int ac, char **av)
 {
@@ -26,6 +27,7 @@ int		main(int ac, char **av)
 	megastruct.coords = fdf_read(fd);
 	megastruct.img = mlx_new_image(megastruct.discriptor, WIDTH, HIGHT);
 	megastruct.data_adress = mlx_get_data_addr(megastruct.img, &megastruct.bits_per_pixel, &megastruct.size_line, &megastruct.endian);
+	draw(&megastruct);
 	mlx_hook(megastruct.win, 2, 0, keyboard, 0);
 	mlx_loop(megastruct.discriptor);
 	zbs();
