@@ -6,7 +6,7 @@
 /*   By: dbruen <dbruen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/19 17:27:40 by dbruen           ###   ########.fr       */
+/*   Updated: 2019/07/22 14:03:25 by dbruen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # define WIDTH 800
 # define HIGHT 800
 # define NAME "fdf"
-
 
 # include "libft/libft.h"
 # include "mlx.h"
@@ -49,9 +48,12 @@ typedef	struct		s_stroka
 
 typedef	struct		s_mega
 {
+	int			fd;
 	void		*discriptor;
 	void		*win;
 	t_point		**coords;
+	int			coords_in_x_quantity;
+	int			str_quantity;
 	int			zoom;
 	void		*img;
 	char		*data_adress;
@@ -62,7 +64,7 @@ typedef	struct		s_mega
 }					t_mega;
 
 int					get_next_line(const int fd, char **line);
-t_point				**fdf_read(int fd);
+void				fdf_read(t_mega megastruct);
 
 int					keyboard(int key);
 void				pizdec(char i);
