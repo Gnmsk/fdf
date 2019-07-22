@@ -6,7 +6,7 @@
 /*   By: dbruen <dbruen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/22 14:03:25 by dbruen           ###   ########.fr       */
+/*   Updated: 2019/07/22 19:29:17 by dbruen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ t_stroka			*stroka_new(char **content);
 void				stroka_push_front(t_stroka **list, char **data);
 void				stroka_reverse(t_stroka **begin_list);
 t_point				**fdf_cords_point(t_stroka *tmp, int size);
+int					find_point_in_million(t_point xyz, int	max_x);
 
 #endif

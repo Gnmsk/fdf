@@ -6,7 +6,7 @@
 /*   By: dbruen <dbruen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:23 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/22 14:04:14 by dbruen           ###   ########.fr       */
+/*   Updated: 2019/07/22 14:14:57 by dbruen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	fdf_read(t_mega megastruct)
 	char		*argv;
 	char		**splitted_argv;
 	t_stroka	*tmp;
-	int			i;
 
 	megastruct.str_quantity = 0;
 	while (get_next_line(megastruct.fd, &argv))
@@ -32,9 +31,9 @@ void	fdf_read(t_mega megastruct)
 		megastruct.str_quantity++;
 	}
 	stroka_reverse(&tmp);
-	i = counter(argv, ' ') + 1;
+	megastruct.coords_in_x_quantity = counter(argv, ' ') + 1;
 	ft_strdel(&argv);
-	megastruct.coords = fdf_cords_point(tmp, megastruct.str_quantity * i);
+	megastruct.coords = fdf_cords_point(tmp, megastruct.str_quantity * megastruct.coords_in_x_quantity);
 }
 
 t_point	**fdf_cords_point(t_stroka *tmp, int size)
