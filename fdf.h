@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/23 17:28:26 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/23 19:03:49 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ t_stroka			*stroka_new(char **content);
 void				stroka_push_front(t_stroka **list, char **data);
 void				stroka_reverse(t_stroka **begin_list);
 t_point				**fdf_cords_point(t_stroka *tmp, int size);
-void				draw(t_mega megastruct);
-int					find_point_in_million(int x, int y, int	max_x);
-void				draw_line(t_point a, t_point b, int max_x);
+void				draw(t_mega *megastruct);
+void				find_point_in_million(int x, int y, t_mega megastruct);
+void				draw_line(t_point a, t_point b, t_mega megastruct);
 
 #endif
