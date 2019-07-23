@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/23 16:35:53 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/23 17:05:46 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ typedef	struct		s_point
 
 typedef struct		s_line
 {
-	t_point		a;
-	t_point		b;
-	struct	s_line *next;
+	t_point			a;
+	t_point			b;
+	struct s_line	*next;
 }					t_line;
 
 typedef	struct		s_stroka
