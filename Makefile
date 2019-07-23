@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dbruen <dbruen@student.42.fr>              +#+  +:+       +#+         #
+#    By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/18 14:18:22 by tkelsie           #+#    #+#              #
-#    Updated: 2019/07/19 17:24:41 by dbruen           ###   ########.fr        #
+#    Updated: 2019/07/23 16:00:20 by tkelsie          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,10 @@ $(NAME):
 	gcc $(FLAGS) -c 
 
 mac:
-	gcc -o fdf main.c read.c keyboard.c struct_create.c libft/libft.a -L./minilibx_macos -lmlx -framework OpenGL -framework AppKit
+	gcc -o fdf main.c read.c keyboard.c struct_create.c draw.c libft/libft.a -L./minilibx_macos -lmlx -framework OpenGL -framework AppKit
 
 linux:
-	gcc -o linux main.c read.c keyboard.c struct_create.c libft/libft.a -L/usr/X11/lib /usr/X11/lib/libmlx.a -lXext -lX11
+	gcc -o linux main.c read.c keyboard.c struct_create.c draw.c libft/libft.a -L/usr/X11/lib /usr/X11/lib/libmlx.a -lXext -lX11
 
 clean:
 fclean: clean

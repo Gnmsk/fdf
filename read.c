@@ -3,37 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbruen <dbruen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:23 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/22 14:14:57 by dbruen           ###   ########.fr       */
+/*   Updated: 2019/07/23 16:31:20 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "fdf.h"
 
-void	fdf_read(t_mega megastruct)
+void	fdf_read(t_mega *megastruct)
 {
 	char		*argv;
 	char		**splitted_argv;
 	t_stroka	*tmp;
 
-	megastruct.str_quantity = 0;
-	while (get_next_line(megastruct.fd, &argv))
+	megastruct->str_quantity = 0;
+	while (get_next_line(megastruct->fd, &argv))
 	{
 		if (!(splitted_argv = ft_strsplit(argv, ' ')))
 			pizdec('b');
-		if (megastruct.str_quantity == 0)
+		if (megastruct->str_quantity == 0)
 			tmp = stroka_new(splitted_argv);
 		else
 			stroka_push_front(&tmp, splitted_argv);
-		megastruct.str_quantity++;
+		megastruct->str_quantity++;
 	}
 	stroka_reverse(&tmp);
-	megastruct.coords_in_x_quantity = counter(argv, ' ') + 1;
+	megastruct->coords_in_x_quantity = counter(argv, ' ') + 1;
 	ft_strdel(&argv);
-	megastruct.coords = fdf_cords_point(tmp, megastruct.str_quantity * megastruct.coords_in_x_quantity);
+	megastruct->coords = fdf_cords_point(tmp, megastruct->str_quantity * megastruct->coords_in_x_quantity);
 }
 
 t_point	**fdf_cords_point(t_stroka *tmp, int size)

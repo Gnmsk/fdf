@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_counter.c                                       :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/23 14:39:50 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/23 14:39:51 by tkelsie          ###   ########.fr       */
+/*   Created: 2019/07/23 14:37:39 by tkelsie           #+#    #+#             */
+/*   Updated: 2019/07/23 15:44:50 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		counter(char *s, int ch)
+int	ft_abs(int x)
 {
-	int		nb;
-	char	*str;
-
-	nb = 0;
-	str = (char *)s;
-	while (*str != '\0')
-	{
-		if (*str == ch)
-			nb++;
-		str++;
-	}
-	return (nb);
+	return (x < 0 ? -x : x);
 }

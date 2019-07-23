@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbruen <dbruen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/22 19:29:17 by dbruen           ###   ########.fr       */
+/*   Updated: 2019/07/23 16:35:53 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,14 @@ typedef	struct		s_mega
 	int			zoom;
 	void		*img;
 	char		*data_adress;
-	int		bits_per_pixel;
-	int		size_line;
-	int		endian;
+	int			bits_per_pixel;
+	int			size_line;
+	int			endian;
 
 }					t_mega;
 
 int					get_next_line(const int fd, char **line);
-void				fdf_read(t_mega megastruct);
+void				fdf_read(t_mega *megastruct);
 
 int					keyboard(int key);
 void				pizdec(char i);
@@ -74,6 +74,8 @@ t_stroka			*stroka_new(char **content);
 void				stroka_push_front(t_stroka **list, char **data);
 void				stroka_reverse(t_stroka **begin_list);
 t_point				**fdf_cords_point(t_stroka *tmp, int size);
-int					find_point_in_million(t_point xyz, int	max_x);
+void				draw(t_mega megastruct);
+int					find_point_in_million(int x, int y, int	max_x);
+void				draw_line(t_point a, t_point b, int max_x);
 
 #endif

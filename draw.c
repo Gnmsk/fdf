@@ -1,46 +1,84 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/23 15:51:44 by tkelsie           #+#    #+#             */
+/*   Updated: 2019/07/23 17:00:46 by tkelsie          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	draw(t_mega megastruct)
 {
 	int i;
 
-	while (megastruct.coords[i])
+	i = 0;
+
+	while (i < 25)
 	{
-		if (megastruct.cords[i].x < megastruct.coords_in_x_quantity):
-			draw_line(megastruct.coords[i], megastruct.coords[i + 1]);
-		if (megastruct.cords[i + megastruct.coords_in_x_quantity]):
-			draw_line(megastruct.coords[i],megastruct.coords[i + megastruct.coords_in_x_quantity]);
+		if (megastruct.coords[i]->x < megastruct.coords_in_x_quantity - 1)
+			draw_line(*megastruct.coords[i], *megastruct.coords[i + 1],  megastruct.coords_in_x_quantity);
+		if (megastruct.coords[i + megastruct.coords_in_x_quantity])
+			draw_line(*megastruct.coords[i], *megastruct.coords[i + megastruct.coords_in_x_quantity], megastruct.coords_in_x_quantity);
 		i++;
+		printf("\ni: %d; ", i);
 	}
 }
 
-{	
-	if	((b.x - a.x) && ((b.x - a.x) >= (b.y - a.y)) && (b.y - a.y)) //все ок
-		return (1);
-	if	(((b.x - a.x) < (b.y - a.y)) && (b.y - a.y)) // больше 45
- 		return (2);
-	if	((b.x - a.x) && ((b.x - a.x) >= (a.y - b.y)) && (b.y < a.y)) // меньше 45 но вниз
-		return (3);
-	if	((b.y < a.y) && ((a.y - b.y) > (b.x - a.x))) // больше 45 и вниз
-		return (4);
-	else
-		printf("var detect error");
-}
-
-int	find_point_in_million(t_point xyz, int	max_x)
+int		find_point_in_million(int x, int  y, int	max_x)
 {
 	int i;
 
-	i = xyz.y * max_x + xyz.x;
-	return (i);
+	i = y * max_x + x;
+	printf("%d ", i);
+	return (i * 4);
 }
 
-void	draw_line(int x1, int y1, int x2, int y2, int var)
+void	draw_line(t_point a, t_point b, int max_x)
 {
-	float angle;
-	float y_error;
-	float x_error;
-	
-	y_error = 0;
-	x_error = 0;
+	int		delta[2];
+	int		cords[4] = {a.x, a.y, b.x, b.y};
+	int		err_ystep[2];
+	int		xy[2];
+	int		steep;
+	int		tmp;
+
+	steep = ft_abs(b.y - a.y) > ft_abs(b.x - a.x) ? 1 : 0;
+	if (steep)
+	{
+		cords[0] = a.y;
+		cords[1] = a.x;
+		cords[2] = b.y;
+		cords[3] = b.x;
+	}
+	if (cords[0] > cords[1])
+	{
+		tmp = cords[0];
+		cords[0] = cords[1];
+		cords[1] = tmp;
+		tmp = cords[3];
+		cords[3] = cords[2];
+		cords[2] = tmp;
+	}
+	delta[0] = cords[1] - cords[0];
+	delta[1] = ft_abs(cords[3] - cords[2]);
+	err_ystep[0] = delta[0] / 2;
+	err_ystep[1] = (cords[2] < cords[3] ? 1 : -1);
+	xy[0] = cords[0];
+	xy[1] = cords[2];
+	while (xy[0] <= cords[1])
+	{
+		find_point_in_million(steep ? xy[1] : xy[0], steep ? xy[0] : xy[1], max_x);
+		err_ystep[0] -= delta[1];
+		if (err_ystep[0] < 0)
+		{
+			xy[1] += err_ystep[1];
+			err_ystep[0] += delta[0];
+		}
+		xy[0]++;
+	}
 }

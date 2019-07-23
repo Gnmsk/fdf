@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbruen <dbruen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 17:59:01 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/19 17:23:49 by dbruen           ###   ########.fr       */
+/*   Updated: 2019/07/23 16:05:34 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
 
 void				ft_bzero(void *s, size_t n);
+
+int					ft_abs(int x);
 
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
