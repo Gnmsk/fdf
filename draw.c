@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 15:51:44 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/23 17:00:46 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/23 17:47:39 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,26 @@ void	draw(t_mega megastruct)
 
 	i = 0;
 
-	while (i < 25)
+	while (i < (megastruct.coords_in_x_quantity * megastruct.str_quantity))
 	{
 		if (megastruct.coords[i]->x < megastruct.coords_in_x_quantity - 1)
 			draw_line(*megastruct.coords[i], *megastruct.coords[i + 1],  megastruct.coords_in_x_quantity);
-		if (megastruct.coords[i + megastruct.coords_in_x_quantity])
-			draw_line(*megastruct.coords[i], *megastruct.coords[i + megastruct.coords_in_x_quantity], megastruct.coords_in_x_quantity);
+		if (megastruct.coords[i]->y < megastruct.str_quantity - 1)
+			draw_line(*megastruct.coords[i], *megastruct.coords[i + megastruct.coords_in_x_quantity - 1], megastruct.coords_in_x_quantity);
 		i++;
-		printf("\ni: %d; ", i);
 	}
 }
 
-int		find_point_in_million(int x, int  y, int	max_x)
+int		find_point_in_million(int x, int  y, int max_x)
 {
 	int i;
 
-	i = y * max_x + x;
-	printf("%d ", i);
+	i = y * max_x + x - 1;
+	
 	return (i * 4);
 }
 
-void	draw_line(t_point a, t_point b, int max_x)
+void	draw_line(t_point a, t_point b, t_mega megastruct)
 {
 	int		delta[2];
 	int		cords[4] = {a.x, a.y, b.x, b.y};
@@ -72,7 +71,7 @@ void	draw_line(t_point a, t_point b, int max_x)
 	xy[1] = cords[2];
 	while (xy[0] <= cords[1])
 	{
-		find_point_in_million(steep ? xy[1] : xy[0], steep ? xy[0] : xy[1], max_x);
+		find_point_in_million(steep ? xy[1] : xy[0], steep ? xy[0] : xy[1], megastruct.coords_in_x_quantity);
 		err_ystep[0] -= delta[1];
 		if (err_ystep[0] < 0)
 		{

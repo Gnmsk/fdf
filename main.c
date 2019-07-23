@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:16:09 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/23 16:45:00 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/23 17:35:17 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int		main(int ac, char **av)
 	megastruct.img = mlx_new_image(megastruct.discriptor, WIDTH, HIGHT);
 	megastruct.data_adress = mlx_get_data_addr(megastruct.img, &megastruct.bits_per_pixel, &megastruct.size_line, &megastruct.endian);
 	printf("%d", megastruct.str_quantity);
-	printf("%d", megastruct.coords[0]->x);
 	draw(megastruct);
 	mlx_hook(megastruct.win, 2, 0, keyboard, 0);
 	mlx_loop(megastruct.discriptor);
