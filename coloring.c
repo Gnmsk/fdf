@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 18:55:28 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/24 19:37:36 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/24 20:22:08 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,5 @@ int		get_color(t_point current, t_point start, t_point end, t_point delta)
 	red = get_light((start.color >> 16) & 0xFF, (end.color >> 16) & 0xFF, pctg);
 	green = get_light((start.color >> 8) & 0xFF, (end.color >> 8) & 0xFF, pctg);
 	blue = get_light(start.color & 0xFF, end.color & 0xFF, pctg);
-	//return ((red << 16) | (green << 8) | blue);
-	return (red << 16 | green << 8);
+	return ((red << 16) | (green << 8) | blue);
 }

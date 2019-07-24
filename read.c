@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:23 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/24 19:23:37 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/24 20:23:39 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,11 @@ t_point	**fdf_cords_point(t_stroka *tmp, int size, int zoom)
 		{
 			if (!(cords[k] = (t_point *)malloc(sizeof(t_point))))
 				pizdec('f');
-			cords[k]->z = ft_atoi(tmp->data[x]);
 			cords[k]->x = x * zoom;
 			cords[k]->y = y * zoom;
-			cords[k++]->color = (ft_atoi(tmp->data[x++]) > 0) ? 'r' : 'w';
+			cords[k]->z = ft_atoi(tmp->data[x++]);
+			//cords[k++]->color = 0x0F800FFF;
+			cords[k++]->color = ft_atoi(tmp->data[x-1]) > 0 ? 0x0F800FFF : 0x0FF;
 			//printf("%d %d %d %c\n", cords[k-1]->x, cords[k-1]->y, cords[k-1]->z, cords[k-1]->color);
 		}
 		//printf("\n");
