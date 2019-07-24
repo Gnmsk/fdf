@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:23 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/23 19:03:51 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/24 17:40:20 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	fdf_read(t_mega *megastruct)
 	t_stroka	*tmp;
 
 	megastruct->str_quantity = 0;
+	megastruct->zoom = 15;
 	while (get_next_line(megastruct->fd, &argv))
 	{
 		if (!(splitted_argv = ft_strsplit(argv, ' ')))
@@ -31,20 +32,19 @@ void	fdf_read(t_mega *megastruct)
 		megastruct->str_quantity++;
 	}
 	stroka_reverse(&tmp);
-	megastruct->coords_in_x_quantity = counter(argv, ' ') + 1;
+	megastruct->coords_in_x_quantity =  counter(argv, ' ') + 1;
 	ft_strdel(&argv);
-	megastruct->coords = fdf_cords_point(tmp, megastruct->str_quantity * megastruct->coords_in_x_quantity);
+	megastruct->coords = fdf_cords_point(tmp, megastruct->str_quantity * megastruct->coords_in_x_quantity, megastruct->zoom);
 }
 
-t_point	**fdf_cords_point(t_stroka *tmp, int size)
+t_point	**fdf_cords_point(t_stroka *tmp, int size, int zoom)
 {
 	t_point		**cords;
 	int			x;
 	int			k;
 	int			y;
-	int			zoom;
 
-	zoom = 100;
+
 	if (!(cords = (t_point **)malloc(sizeof(t_point *) * size)))
 		pizdec('e');
 	k = 0;

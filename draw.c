@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 15:51:44 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/23 19:03:52 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/24 17:37:56 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,81 +15,59 @@
 void	draw(t_mega *megastruct)
 {
 	int i;
+	int max_x;
+	int max_y;
 
 	i = 0;
-
-	while (i < (megastruct->coords_in_x_quantity * megastruct->str_quantity))
+	max_x = megastruct->coords_in_x_quantity;
+	max_y = megastruct->str_quantity;
+	while (i < (max_x * max_y) - 1)
 	{
-		if (megastruct->coords[i]->x < megastruct->coords_in_x_quantity - 1)
+		if (megastruct->coords[i]->x / megastruct->zoom < max_x - 1)
 			draw_line(*megastruct->coords[i], *megastruct->coords[i + 1], *megastruct);
-		if (megastruct->coords[i]->y < megastruct->str_quantity - 1)
-			draw_line(*megastruct->coords[i], *megastruct->coords[i + megastruct->coords_in_x_quantity], *megastruct);
+		if (megastruct->coords[i]->y / megastruct->zoom < max_y - 1)
+			draw_line(*megastruct->coords[i], *megastruct->coords[i + max_x], *megastruct);	
 		i++;
 	}
 }
 
 void	find_point_in_million(int x, int  y, t_mega megastruct)
 {
-	int i;
-	int q;
-
-	q = 0;
-	i = megastruct.coords_in_x_quantity * y + x - 1;
-	while (q < 3)
-	{
-		megastruct.data_adress[i] = (char)255;
-		q++;
-		i++;
-	}
-	megastruct.data_adress[i] = 0;
+	if ((y < HIGHT) && (y >= 0) && (x < WIDTH) && (x >= 0))
+		megastruct.data_adress[y * WIDTH + x] = 65146;
 }
 
-void	draw_line(t_point a, t_point b, t_mega megastruct)
+static int	barely_equals(double c, double b)
 {
-	int		delta[2];
-	int		cords[4] = {a.x, a.y, b.x, b.y};
-	int		err_ystep[2];
-	int		xy[2];
-	int		steep;
-	int		tmp;
+	double a;
 
-	steep = ft_abs(b.y - a.y) > ft_abs(b.x - a.x) ? 1 : 0;
-	if (steep)
+	a = c - b;
+	return (((a < 0.) ? -a : a) < 1);
+}
+
+void		draw_line(t_point a, t_point b, t_mega megastruct)
+{
+	t_point	delta;
+	t_point	sign;
+	t_point	cur;
+	int		error[2];
+
+	delta.x = ft_abs(b.x - a.x);
+	delta.y = ft_abs(b.y - a.y);
+	sign.x = a.x < b.x ? 1 : -1;
+	sign.y = a.y < b.y ? 1 : -1;
+	error[0] = delta.x - delta.y;
+	cur = a;
+	while (!barely_equals(cur.x, b.x) || !barely_equals(cur.y, b.y))
 	{
-		cords[0] = a.y;
-		cords[1] = a.x;
-		cords[2] = b.y;
-		cords[3] = b.x;
-	}
-	if (cords[0] > cords[1])
-	{
-		tmp = cords[0];
-		cords[0] = cords[1];
-		cords[1] = tmp;
-		tmp = cords[3];
-		cords[3] = cords[2];
-		cords[2] = tmp;
-	}
-	delta[0] = cords[1] - cords[0];
-	delta[1] = ft_abs(cords[3] - cords[2]);
-	err_ystep[0] = delta[0] / 2;
-	err_ystep[1] = (cords[2] < cords[3] ? 1 : -1);
-	xy[0] = cords[0];
-	xy[1] = cords[2];
-	while (xy[0] <= cords[1])
-	{
-		find_point_in_million(steep ? xy[1] : xy[0], steep ? xy[0] : xy[1], megastruct);
-		err_ystep[0] -= delta[1];
-		if (err_ystep[0] < 0)
+		//cur.color = get_color(cur, a, b, delta);
+		find_point_in_million(cur.x, cur.y, megastruct);
+		if ((error[1] = error[0] << 2) > -delta.y)
 		{
-			xy[1] += err_ystep[1];
-			err_ystep[0] += delta[0];
+			error[0] -= delta.y;
+			cur.x += sign.x;
 		}
-		xy[0]++;
+		error[1] < delta.x ? cur.y += sign.y : 0;
+		error[1] < delta.x ? error[0] += delta.x : 0;
 	}
-}
-
-void	print_int()
-{
-
 }

@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/23 19:03:49 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/24 17:29:18 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef	struct		s_mega
 	int			str_quantity;
 	int			zoom;
 	void		*img;
-	char		*data_adress;
+	unsigned int		*data_adress;
 	int			bits_per_pixel;
 	int			size_line;
 	int			endian;
@@ -73,7 +73,7 @@ void				zbs(void);
 t_stroka			*stroka_new(char **content);
 void				stroka_push_front(t_stroka **list, char **data);
 void				stroka_reverse(t_stroka **begin_list);
-t_point				**fdf_cords_point(t_stroka *tmp, int size);
+t_point				**fdf_cords_point(t_stroka *tmp, int size, int zoom);
 void				draw(t_mega *megastruct);
 void				find_point_in_million(int x, int y, t_mega megastruct);
 void				draw_line(t_point a, t_point b, t_mega megastruct);
