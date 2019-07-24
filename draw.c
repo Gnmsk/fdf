@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 15:51:44 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/24 17:37:56 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/24 18:12:40 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,37 +37,32 @@ void	find_point_in_million(int x, int  y, t_mega megastruct)
 		megastruct.data_adress[y * WIDTH + x] = 65146;
 }
 
-static int	barely_equals(double c, double b)
+static int	cmp(int c, int b)
 {
-	double a;
-
-	a = c - b;
-	return (((a < 0.) ? -a : a) < 1);
+	return (ft_abs(c - b) < 1);
 }
 
 void		draw_line(t_point a, t_point b, t_mega megastruct)
 {
-	t_point	delta;
-	t_point	sign;
-	t_point	cur;
+	int		delta[2];
+	int		sign[2];
 	int		error[2];
+	t_point	cur;
 
-	delta.x = ft_abs(b.x - a.x);
-	delta.y = ft_abs(b.y - a.y);
-	sign.x = a.x < b.x ? 1 : -1;
-	sign.y = a.y < b.y ? 1 : -1;
-	error[0] = delta.x - delta.y;
+	delta[0] = ft_abs(b.x - a.x);
+	delta[1] = ft_abs(b.y - a.y);
+	sign[0] = a.x < b.x ? 1 : -1;
+	sign[1] = a.y < b.y ? 1 : -1;
+	error[0] = delta[0] - delta[1];
 	cur = a;
-	while (!barely_equals(cur.x, b.x) || !barely_equals(cur.y, b.y))
+	while (!cmp(cur.x, b.x) || !cmp(cur.y, b.y))
 	{
 		//cur.color = get_color(cur, a, b, delta);
 		find_point_in_million(cur.x, cur.y, megastruct);
-		if ((error[1] = error[0] << 2) > -delta.y)
-		{
-			error[0] -= delta.y;
-			cur.x += sign.x;
-		}
-		error[1] < delta.x ? cur.y += sign.y : 0;
-		error[1] < delta.x ? error[0] += delta.x : 0;
+		error[1] = 2 * error[0];
+		error[1] > -delta[1] ? error[0] -= delta[1] : 0;
+		error[1] > -delta[1] ? cur.x += sign[0] : 0;
+		error[1] < delta[0] ? cur.y += sign[1] : 0;
+		error[1] < delta[0] ? error[0] += delta[0] : 0;
 	}
 }
