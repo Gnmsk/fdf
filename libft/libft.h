@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 17:59:01 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/23 16:05:34 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/24 18:40:37 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ char				*ft_itoa(int n);
 void				ft_bzero(void *s, size_t n);
 
 int					ft_abs(int x);
+int					ft_equals(int a, int b);
+int					ft_max(int *a, int *b, int size);
+int					ft_maxsingle(int *a, int size);
+int					counter(char *s, int ch);
+int					ft_ncounter(char *s, int ch);
 
 void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
@@ -68,9 +73,6 @@ int					ft_isprint(int c);
 
 int					ft_tolower(int c);
 int					ft_toupper(int c);
-int					ft_max(int *a, int *b, int size);
-int					ft_maxsingle(int *a, int size);
-int					counter(char *s, int ch);
 
 void				ft_putchar(char c);
 void				ft_putnbr(int n);

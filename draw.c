@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 15:51:44 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/24 18:12:40 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/24 18:19:55 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,7 @@ void	draw(t_mega *megastruct)
 void	find_point_in_million(int x, int  y, t_mega megastruct)
 {
 	if ((y < HIGHT) && (y >= 0) && (x < WIDTH) && (x >= 0))
-		megastruct.data_adress[y * WIDTH + x] = 65146;
-}
-
-static int	cmp(int c, int b)
-{
-	return (ft_abs(c - b) < 1);
+		megastruct.data_adress[y * WIDTH + x] = 255;
 }
 
 void		draw_line(t_point a, t_point b, t_mega megastruct)
@@ -55,7 +50,7 @@ void		draw_line(t_point a, t_point b, t_mega megastruct)
 	sign[1] = a.y < b.y ? 1 : -1;
 	error[0] = delta[0] - delta[1];
 	cur = a;
-	while (!cmp(cur.x, b.x) || !cmp(cur.y, b.y))
+	while (cur.x != b.x || cur.y != b.y)
 	{
 		//cur.color = get_color(cur, a, b, delta);
 		find_point_in_million(cur.x, cur.y, megastruct);
