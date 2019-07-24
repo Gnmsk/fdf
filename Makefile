@@ -6,14 +6,14 @@
 #    By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/18 14:18:22 by tkelsie           #+#    #+#              #
-#    Updated: 2019/07/24 18:55:21 by tkelsie          ###   ########.fr        #
+#    Updated: 2019/07/24 19:53:46 by tkelsie          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 MLX = -L./minilibx_macos -lmlx -framework OpenGL -framework AppKit
 FLAGS = -Wall -Wextra -Werror 
-SRCS = main.c read.c keyboard.c struct_create.c draw.c coloring.c
+SRCS = main.c read.c keyboard.c struct_create.c draw.c coloring.c rotation.c
 
 all: 
 	$(NAME)
