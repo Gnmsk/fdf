@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 15:51:44 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/25 17:16:34 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/25 18:20:21 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	draw(t_mega *megastruct)
 	max_y = megastruct->str_quantity;
 	while (i < (max_x * max_y) - 1)
 	{
-		if (i % max_x< max_x - 1)
+		if (i % max_x < max_x - 1)
 			draw_line(*megastruct->coords[i], *megastruct->coords[i + 1],
 			*megastruct);
 		if (i / max_x < max_y - 1)
