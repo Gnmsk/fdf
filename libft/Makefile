@@ -6,7 +6,7 @@
 #    By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/07 17:58:25 by tkelsie           #+#    #+#              #
-#    Updated: 2019/07/25 14:50:24 by tkelsie          ###   ########.fr        #
+#    Updated: 2019/07/25 15:32:52 by tkelsie          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,7 @@ FILES = ./ft_atoi.c \
 ./ft_equals.c \
 ./ft_ncounter.c \
 ./ft_atoi_base.c \
+./ft_pow.c \
 
 OFILES			= $(FILES:./%.c= %.o)
 

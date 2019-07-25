@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/24 19:57:12 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/25 15:51:49 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define WIDTH 800
 # define HIGHT 800
 # define NAME "fdf"
+# define ISO 30
 
 # include "libft/libft.h"
 # include "mlx.h"
@@ -85,5 +86,6 @@ double				percentage(t_point d, t_point st, t_point end, t_point cur);
 int					get_light(int start, int end, double percentage);
 int					get_color(t_point cur, t_point st, t_point end, t_point d);
 
-static void			iso(int *x, int *y, int z);
+void				iso(t_point *p);
+void				rotation(t_mega *megastruct);
 #endif

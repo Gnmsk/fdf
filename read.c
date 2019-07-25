@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:23 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/25 15:00:46 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/25 15:58:28 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	fdf_read(t_mega *megastruct)
 	megastruct->coords_in_x_quantity = ft_ncounter(argv, ' ') + 1;
 	ft_strdel(&argv);
 	megastruct->coords = fdf_cords_point(tmp, megastruct->str_quantity * megastruct->coords_in_x_quantity, megastruct->zoom);
+	rotation(megastruct);
 }
 
 void	set_color(char *data, t_point *cord)
@@ -56,7 +57,7 @@ void	set_color(char *data, t_point *cord)
 	else
 	{
 		cord->z = ft_atoi(data);
-		cord->color = 0x0FF00F0F;
+		cord->color = 0x0F00F0F;
 	}
 }
 
@@ -82,9 +83,9 @@ t_point	**fdf_cords_point(t_stroka *tmp, int size, int zoom)
 			cords[k]->x = x * zoom;
 			cords[k]->y = y * zoom;
 			set_color(tmp->data[x++], cords[k++]);
-			//printf("%d %d %d %c\n", cords[k-1]->x, cords[k-1]->y, cords[k-1]->z, cords[k-1]->color);
+			printf("%d %d %d %d\n", cords[k-1]->x, cords[k-1]->y, cords[k-1]->z, cords[k-1]->color);
 		}
-		//printf("\n");
+		printf("\n");
 		tmp = tmp->next;
 		y++;
 	}

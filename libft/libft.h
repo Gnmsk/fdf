@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 17:59:01 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/25 14:50:09 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/25 15:33:00 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int					ft_abs(int x);
 int					ft_equals(int a, int b);
 int					ft_max(int *a, int *b, int size);
 int					ft_maxsingle(int *a, int size);
+int					ft_pow(int nb, int power);
+
 int					counter(char *s, int ch);
 int					ft_ncounter(char *s, int ch);
 
