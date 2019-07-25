@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 19:50:43 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/25 17:22:03 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/25 17:23:45 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,18 @@ void	rotation(t_mega *megastruct)
 {
 	int i;
 	int max_;
-	int	offset;
 	t_point		**new_cords;
 
 	i = 0;
-	offset = 0;
 	max_ = megastruct->coords_in_x_quantity * megastruct->str_quantity;
 	while (i < max_)
 	{
 		iso(megastruct->coords[i]);
-		offset = (offset > megastruct->coords[i]->x) ? megastruct->coords[i]->x : offset;
+		megastruct->offset = (megastruct->offset > megastruct->coords[i]->x) ?
+		megastruct->coords[i]->x : megastruct->offset;
 		i++;
 	}
-	megastruct->offset = offset;
 	i = 0;
 	while (i < max_)
-		megastruct->coords[i++]->x -= offset;
+		megastruct->coords[i++]->x -= megastruct->offset;
 }
