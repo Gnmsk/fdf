@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:23 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/24 20:23:39 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/25 15:00:46 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,32 @@ void	fdf_read(t_mega *megastruct)
 		megastruct->str_quantity++;
 	}
 	stroka_reverse(&tmp);
-	megastruct->coords_in_x_quantity =  ft_ncounter(argv, ' ') + 1;
+	megastruct->coords_in_x_quantity = ft_ncounter(argv, ' ') + 1;
 	ft_strdel(&argv);
 	megastruct->coords = fdf_cords_point(tmp, megastruct->str_quantity * megastruct->coords_in_x_quantity, megastruct->zoom);
+}
+
+void	set_color(char *data, t_point *cord)
+{
+	char	**row;
+	int		i;
+
+	if (ft_strchr(data, ','))
+	{
+		row = ft_strsplit(data, ',');
+		cord->z = ft_atoi(row[0]);
+		cord->color = ft_atoi_base(row[1], 16);
+		i = 0;
+		while (row[i])
+			ft_strdel(&row[i++]);
+		free(row);
+		row = NULL;
+	}
+	else
+	{
+		cord->z = ft_atoi(data);
+		cord->color = 0x0FF00F0F;
+	}
 }
 
 t_point	**fdf_cords_point(t_stroka *tmp, int size, int zoom)
@@ -58,9 +81,7 @@ t_point	**fdf_cords_point(t_stroka *tmp, int size, int zoom)
 				pizdec('f');
 			cords[k]->x = x * zoom;
 			cords[k]->y = y * zoom;
-			cords[k]->z = ft_atoi(tmp->data[x++]);
-			//cords[k++]->color = 0x0F800FFF;
-			cords[k++]->color = ft_atoi(tmp->data[x-1]) > 0 ? 0x0F800FFF : 0x0FF;
+			set_color(tmp->data[x++], cords[k++]);
 			//printf("%d %d %d %c\n", cords[k-1]->x, cords[k-1]->y, cords[k-1]->z, cords[k-1]->color);
 		}
 		//printf("\n");

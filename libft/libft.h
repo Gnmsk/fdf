@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 17:59:01 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/24 18:40:37 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/25 14:50:09 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct		s_gnllist
 }					t_gnllist;
 
 int					ft_atoi(const char *str);
+int					ft_atoi_base(char *nb, int base);
 char				*ft_itoa(int n);
 
 void				ft_bzero(void *s, size_t n);
