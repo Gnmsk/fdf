@@ -6,13 +6,13 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 19:50:43 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/25 17:47:50 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/25 17:48:25 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	iso(t_point  *p, t_point  *offset)
+void	iso(t_point *p, t_point *offset)
 {
 	int previous_x;
 	int previous_y;
