@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:23 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/25 17:47:15 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/25 17:51:44 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,11 @@ void	fdf_read(t_mega *megastruct)
 	}
 	stroka_reverse(&tmp);
 	megastruct->coords_in_x_quantity = ft_ncounter(argv, ' ') + 1;
-	megastruct->max_ = megastruct->str_quantity * megastruct->coords_in_x_quantity;
+	megastruct->max_ = megastruct->str_quantity *
+	megastruct->coords_in_x_quantity;
 	ft_strdel(&argv);
-	megastruct->coords = fdf_cords_point(tmp, megastruct->max_, megastruct->zoom);
+	megastruct->coords = fdf_cords_point(tmp, megastruct->max_,
+	megastruct->zoom);
 }
 
 void	set_color(char *data, t_point *cord)
@@ -67,7 +69,6 @@ t_point	**fdf_cords_point(t_stroka *tmp, int size, int zoom)
 	int			x;
 	int			k;
 	int			y;
-
 
 	if (!(cords = (t_point **)malloc(sizeof(t_point *) * size)))
 		pizdec('e');
