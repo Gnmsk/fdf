@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/25 15:51:49 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/25 16:57:05 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ typedef	struct		s_mega
 	t_point				**coords;
 	int					coords_in_x_quantity;
 	int					str_quantity;
+	int					max_;
+	int					offset;
 	int					zoom;
 	void				*img;
 	unsigned int		*data_adress;
@@ -86,6 +88,6 @@ double				percentage(t_point d, t_point st, t_point end, t_point cur);
 int					get_light(int start, int end, double percentage);
 int					get_color(t_point cur, t_point st, t_point end, t_point d);
 
-void				iso(t_point *p);
+void				iso(t_point *p, t_point *n);
 void				rotation(t_mega *megastruct);
 #endif
