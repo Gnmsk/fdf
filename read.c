@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:23 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/25 18:20:21 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/25 18:40:08 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	fdf_read(t_mega *megastruct)
 	t_stroka	*tmp;
 
 	megastruct->str_quantity = 0;
-	megastruct->zoom = 35;
+	megastruct->zoom = 15;
 	while (get_next_line(megastruct->fd, &argv))
 	{
 		if (!(splitted_argv = ft_strsplit(argv, ' ')))
@@ -59,7 +59,7 @@ void	set_color(char *data, t_point *cord)
 	else
 	{
 		cord->z = ft_atoi(data);
-		cord->color = 0x0F00F0F;
+		cord->color = 0x0F00F0F + (ft_atoi(data) * 10000000);
 		//cord->color = -1;
 	}
 }
