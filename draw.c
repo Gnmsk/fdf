@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 15:51:44 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/26 19:45:43 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/26 21:59:44 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,28 @@ void	draw_line(t_point a, t_point b, t_mega megastruct)
 		error[1] > -delta.y ? cur.x += sign[0] : 0;
 		error[1] < delta.x ? error[0] += delta.x : 0;
 		error[1] < delta.x ? cur.y += sign[1] : 0;
+	}
+}
+
+void	put_pixel(int x, int y, int color, t_mega *megastruct)
+{
+	megastruct->data_adress[y * WIDTH + x] = color;
+}
+
+void	fill_backgound(int color, t_mega *megastruct)
+{
+	int				x;
+	int				y;
+
+	y = 0;
+	while (y < HIGHT)
+	{
+		x = 0;
+		while (x < WIDTH)
+		{
+			megastruct->data_adress[y * WIDTH + x] = color;
+			x++;
+		}
+		y++;
 	}
 }

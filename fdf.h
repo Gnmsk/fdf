@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/26 21:52:41 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/26 22:05:53 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # define HIGHT 800
 # define NAME "fdf"
 # define ISO 30
-# define ZOOM 25
 
 # define STARTCOLOR 0x0F00F0F
 # define ENDCOLOR 0xFCF75F
@@ -104,4 +103,6 @@ void				rotation(t_mega *megastruct);
 
 void				shift_x(t_mega *megastruct, int step);
 void				shift_y(t_mega *megastruct, int step);
+
+void				interface(t_mega *megastructura);
 #endif
