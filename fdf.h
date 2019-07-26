@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/26 17:04:28 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/26 18:49:54 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # define HIGHT 800
 # define NAME "fdf"
 # define ISO 30
+
+# define STARTCOLOR 0x0F00F0F
+# define ENDCOLOR 0xFCF75F
 
 # include "libft/libft.h"
 # include "mlx.h"
@@ -57,7 +60,7 @@ typedef	struct		s_mega
 	t_point				**coords;
 	int					max_x;
 	int					max_y;
-	int					max_z;
+	t_point				min_max_z;
 	int					max_;
 	t_point				offset;
 	int					zoom;
@@ -79,15 +82,17 @@ void				zbs(void);
 t_stroka			*stroka_new(char **content);
 void				stroka_push_front(t_stroka **list, char **data);
 void				stroka_reverse(t_stroka **begin_list);
-t_point				**fdf_cords_point(t_stroka *tmp, int size, int zoom);
+t_point				**fdf_cords_point(t_stroka *tmp, t_mega *megastruct);
 void				draw(t_mega *megastruct);
 void				find_point_in_million(t_point cur, t_mega megastrct);
 void				draw_line(t_point a, t_point b, t_mega megastruct);
 
+int					color(int start, int end, double percentage);
 double				percent(int start, int end, int current);
 double				percentage(t_point d, t_point st, t_point end, t_point cur);
 int					get_light(int start, int end, double percentage);
 int					get_color(t_point cur, t_point st, t_point end, t_point d);
+void				gradient(t_mega *megastruct);
 
 void				iso(t_point *p, t_point *offset);
 void				rotation(t_mega *megastruct);

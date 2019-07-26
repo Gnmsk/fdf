@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 18:55:28 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/25 18:20:20 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/26 18:50:59 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ double	percentage(t_point delta, t_point start, t_point end, t_point current)
 	double percentage;
 
 	if (delta.x > delta.y)
-		return (percent(start.x, end.x, current.x));
-	return (percent(start.y, end.y, current.y));
+		percentage = percent(start.x, end.x, current.x);
+	percentage = percent(start.y, end.y, current.y);
+	return (percentage);
 }
 
 int		get_light(int start, int end, double percentage)
@@ -36,21 +37,35 @@ int		get_light(int start, int end, double percentage)
 	return ((int)((1 - percentage) * start + percentage * end));
 }
 
-int		get_color(t_point current, t_point start, t_point end, t_point delta)
+int		color(int start, int end, double percentage)
 {
-	int		red;
-	int		green;
-	int		blue;
-	double	pctg;
+	int red;
+	int green;
+	int blue;
 
-	if (current.color == end.color)
-		return (current.color);
-	if (delta.x > delta.y)
-		pctg = percent(start.x, end.x, current.x);
-	else
-		pctg = percent(start.y, end.y, current.y);
-	red = get_light((start.color >> 16) & 0xFF, (end.color >> 16) & 0xFF, pctg);
-	green = get_light((start.color >> 8) & 0xFF, (end.color >> 8) & 0xFF, pctg);
-	blue = get_light(start.color & 0xFF, end.color & 0xFF, pctg);
+	red = get_light((start >> 16) & 0xFF, (end >> 16) & 0xFF, percentage);
+	green = get_light((start >> 8) & 0xFF, (end >> 8) & 0xFF, percentage);
+	blue = get_light(start & 0xFF, end & 0xFF, percentage);
 	return ((red << 16) | (green << 8) | blue);
+}
+
+int		get_color(t_point cur, t_point start, t_point end, t_point delta)
+{
+	if (cur.color == end.color)
+		return (cur.color);
+	return (color(start.color, end.color, percentage(delta, start, end, cur)));
+}
+
+void	gradient(t_mega *megastruct)
+{
+	int		i;
+	double	pct;
+
+	i = 0;
+	while (i < megastruct->max_)
+	{
+		pct = percent(megastruct->min_max_z.x, megastruct->min_max_z.y,
+		megastruct->coords[i]->z);
+		megastruct->coords[i++]->color = color(STARTCOLOR, ENDCOLOR, pct);
+	}
 }
