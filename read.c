@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:23 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/26 18:35:54 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/26 21:26:10 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	fdf_read(t_mega *megastruct)
 	t_stroka	*tmp;
 
 	megastruct->max_y = 0;
-	megastruct->zoom = 35;
+	megastruct->zoom = 25;
 	while (get_next_line(megastruct->fd, &argv))
 	{
 		if (!(splitted_argv = ft_strsplit(argv, ' ')))
@@ -36,10 +36,9 @@ void	fdf_read(t_mega *megastruct)
 	megastruct->max_ = megastruct->max_y * megastruct->max_x;
 	ft_strdel(&argv);
 	megastruct->coords = fdf_cords_point(tmp, megastruct);
-	printf("%d %d", megastruct->min_max_z.x, megastruct->min_max_z.y);
 }
 
-void	set_color(char *data, t_point *cord)
+void	set_color(char *data, t_point *cord, int zoom)
 {
 	char	**row;
 	int		i;
@@ -47,7 +46,7 @@ void	set_color(char *data, t_point *cord)
 	if (ft_strchr(data, ','))
 	{
 		row = ft_strsplit(data, ',');
-		cord->z = ft_atoi(row[0]);
+		cord->z = ft_atoi(row[0]) * zoom;
 		cord->color = ft_atoi_base(row[1], 16);
 		i = 0;
 		while (row[i])
@@ -57,7 +56,7 @@ void	set_color(char *data, t_point *cord)
 	}
 	else
 	{
-		cord->z = ft_atoi(data);
+		cord->z = ft_atoi(data) * zoom;
 		cord->color = -1;
 	}
 }
@@ -94,7 +93,7 @@ t_point	**fdf_cords_point(t_stroka *tmp, t_mega *megastruct)
 		{
 			if (!(cords[k] = (t_point *)malloc(sizeof(t_point))))
 				pizdec('f');
-			set_color(tmp->data[x++], cords[k]);
+			set_color(tmp->data[x++], cords[k], megastruct->zoom);
 			min_max_z(cords[k]->z, &megastruct->min_max_z, k);
 			cords[k]->x = x * megastruct->zoom;
 			cords[k++]->y = y * megastruct->zoom;

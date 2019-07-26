@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:16:09 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/26 18:34:31 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/26 20:24:56 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		main(int ac, char **av)
 	draw(&megastruct);
 	mlx_put_image_to_window(megastruct.discriptor, megastruct.win,
 	megastruct.img, 0, 0);
-	mlx_hook(megastruct.win, 2, 0, keyboard, 0);
+	mlx_hook(megastruct.win, 2, 0, keyboard, &megastruct);
 	mlx_loop(megastruct.discriptor);
 	zbs();
 	return (0);
@@ -46,4 +46,9 @@ void	pizdec(char i)
 void	zbs(void)
 {
 	exit(0);
+}
+
+void		new_image(t_mega *megastruct)
+{
+	mlx_destroy_image(megastruct->discriptor, megastruct->img);
 }

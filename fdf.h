@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/26 18:59:44 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/26 21:25:52 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define HIGHT 800
 # define NAME "fdf"
 # define ISO 30
+# define ZOOM 25
 
 # define STARTCOLOR 0x0F00F0F
 # define ENDCOLOR 0xFCF75F
@@ -58,6 +59,7 @@ typedef	struct		s_mega
 	void				*discriptor;
 	void				*win;
 	t_point				**coords;
+	t_point				**iso_coords;
 	int					max_x;
 	int					max_y;
 	t_point				min_max_z;
@@ -75,7 +77,7 @@ typedef	struct		s_mega
 int					get_next_line(const int fd, char **line);
 void				fdf_read(t_mega *megastruct);
 
-int					keyboard(int key);
+int					keyboard(int key, t_mega *megastruct);
 void				pizdec(char i);
 void				zbs(void);
 
@@ -87,6 +89,8 @@ void				draw(t_mega *megastruct);
 void				find_point_in_million(t_point cur, t_mega megastrct);
 void				draw_line(t_point a, t_point b, t_mega megastruct);
 
+void				set_color(char *data, t_point *cord, int zoom);
+
 int					color(int start, int end, double percentage);
 double				percent(int start, int end, int current);
 int					get_light(int start, int end, double percentage);
@@ -95,4 +99,7 @@ void				gradient(t_mega *megastruct);
 
 void				iso(t_point *p, t_point *offset);
 void				rotation(t_mega *megastruct);
+
+void				shift_x(t_mega *megastruct);
+void				shift_y(t_mega *megastruct);
 #endif
