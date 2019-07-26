@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/25 18:20:19 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/26 17:04:28 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,9 @@ typedef	struct		s_mega
 	void				*discriptor;
 	void				*win;
 	t_point				**coords;
-	int					coords_in_x_quantity;
-	int					str_quantity;
+	int					max_x;
+	int					max_y;
+	int					max_z;
 	int					max_;
 	t_point				offset;
 	int					zoom;
