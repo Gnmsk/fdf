@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/26 21:25:52 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/26 21:52:41 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,10 @@ void				draw(t_mega *megastruct);
 void				find_point_in_million(t_point cur, t_mega megastrct);
 void				draw_line(t_point a, t_point b, t_mega megastruct);
 
-void				set_color(char *data, t_point *cord, int zoom);
+void				fill_backgound(int color, t_mega *megastruct);
+void				put_pixel(int x, int y, int color, t_mega *megastruct);
 
+void				set_color(char *data, t_point *cord, int zoom);
 int					color(int start, int end, double percentage);
 double				percent(int start, int end, int current);
 int					get_light(int start, int end, double percentage);
@@ -100,6 +102,6 @@ void				gradient(t_mega *megastruct);
 void				iso(t_point *p, t_point *offset);
 void				rotation(t_mega *megastruct);
 
-void				shift_x(t_mega *megastruct);
-void				shift_y(t_mega *megastruct);
+void				shift_x(t_mega *megastruct, int step);
+void				shift_y(t_mega *megastruct, int step);
 #endif

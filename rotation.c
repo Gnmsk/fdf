@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 19:50:43 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/26 21:25:53 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/26 21:50:39 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,24 +42,24 @@ void	rotation(t_mega *megastruct)
 	}
 }
 
-void	shift_x(t_mega *megastruct)
+void	shift_x(t_mega *megastruct, int step)
 {
 	int i;
 
 	i = 0;
 	while (i < megastruct->max_)
 	{
-		megastruct->coords[i++]->x += megastruct->offset.z;
+		megastruct->coords[i++]->x += step;
 	}
 }
 
-void	shift_y(t_mega *megastruct)
+void	shift_y(t_mega *megastruct, int step)
 {
 	int i;
 
 	i = 0;
 	while (i < megastruct->max_)
 	{
-		megastruct->coords[i++]->y += megastruct->offset.color;
+		megastruct->coords[i++]->y += step;
 	}
 }
