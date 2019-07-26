@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/26 18:49:54 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/26 18:59:44 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ void				draw_line(t_point a, t_point b, t_mega megastruct);
 
 int					color(int start, int end, double percentage);
 double				percent(int start, int end, int current);
-double				percentage(t_point d, t_point st, t_point end, t_point cur);
 int					get_light(int start, int end, double percentage);
 int					get_color(t_point cur, t_point st, t_point end, t_point d);
 void				gradient(t_mega *megastruct);

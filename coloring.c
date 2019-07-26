@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 18:55:28 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/26 18:50:59 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/26 19:00:09 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,6 @@ double	percent(int start, int end, int current)
 	placement = current - start;
 	distance = end - start;
 	return ((distance == 0) ? 1.0 : (placement / distance));
-}
-
-double	percentage(t_point delta, t_point start, t_point end, t_point current)
-{
-	double percentage;
-
-	if (delta.x > delta.y)
-		percentage = percent(start.x, end.x, current.x);
-	percentage = percent(start.y, end.y, current.y);
-	return (percentage);
 }
 
 int		get_light(int start, int end, double percentage)
@@ -51,9 +41,15 @@ int		color(int start, int end, double percentage)
 
 int		get_color(t_point cur, t_point start, t_point end, t_point delta)
 {
+	double percentage;
+
 	if (cur.color == end.color)
-		return (cur.color);
-	return (color(start.color, end.color, percentage(delta, start, end, cur)));
+		return (end.color);
+	if (delta.x > delta.y)
+		percentage = percent(start.x, end.x, cur.x);
+	else
+		percentage = percent(start.y, end.y, cur.y);
+	return (color(start.color, end.color, percentage));
 }
 
 void	gradient(t_mega *megastruct)
