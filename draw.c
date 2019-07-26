@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 15:51:44 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/26 21:59:44 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/26 22:25:54 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	draw(t_mega *megastruct)
 
 void	find_point_in_million(t_point cur, t_mega megastruct)
 {
-	if ((cur.y < HIGHT) && (cur.y >= 0) && (cur.x < WIDTH) && (cur.x >= -100))
+	if ((cur.y < HIGHT) && (cur.y >= 0) && (cur.x < WIDTH) && (cur.x >= 0))
 		megastruct.data_adress[cur.y * WIDTH + cur.x] = cur.color;
 }
 
