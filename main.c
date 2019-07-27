@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:16:09 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 11:42:18 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 12:42:51 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int		main(int ac, char **av)
 	fill_backgound(0, &megastruct);
 	gradient(&megastruct);
 	interface(&megastruct);
+	scaling(&megastruct);
 	draw(&megastruct);
 	mlx_put_image_to_window(megastruct.discriptor, megastruct.win,
 	megastruct.img, 0, 55);

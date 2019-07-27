@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 11:09:53 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 12:39:22 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 # define STARTCOLOR 0x0F00F0F
 # define ENDCOLOR 0xFCF75F
+
 
 # include "libft/libft.h"
 # include "mlx.h"
@@ -104,6 +105,7 @@ void				rotation(t_mega *megastruct);
 void				shift_x(t_mega *megastruct, int step);
 void				shift_y(t_mega *megastruct, int step);
 void				zoom(t_mega *megastruct, int key);
+void				scaling(t_mega *megastruct);
 
 void				interface(t_mega *megastructura);
 #endif
