@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 10:51:31 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 11:09:53 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define FDF_H
 
 # define BUFF_SIZE 20
-# define WIDTH 800
-# define HIGHT 800
+# define WIDTH 2000
+# define HIGHT 2000
 # define NAME "fdf"
 # define ISO 30
 
