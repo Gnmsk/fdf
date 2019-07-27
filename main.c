@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:16:09 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 17:07:38 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 17:20:25 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		main(int ac, char **av)
 	gradient(&megastruct);
 	megastruct.proj = 0;
 	megastruct.iso_coords = copy_structure(&megastruct);
+	centre(&megastruct);
 	display_map(&megastruct);
 	mlx_hook(megastruct.win, 2, 0, keyboard, &megastruct);
 	mlx_hook(megastruct.win, 17, 0, close_window, &megastruct);

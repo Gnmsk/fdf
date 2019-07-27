@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:45 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 15:47:44 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 17:11:04 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ t_point	**copy_structure(t_mega *megastruct)
 	t_point	**source;
 	t_point	**dest;
 	t_point	**copy;
-	int 	i;
+	int		i;
 
 	source = (t_point **)megastruct->coords;
 	if (!(copy = (t_point **)malloc(sizeof(t_point *) * megastruct->max_)))

@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 22:03:08 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 17:07:18 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 17:10:41 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void	display_map(t_mega *megastruct)
 	fill_backgound(0, megastruct);
 }
 
-int close_window(void *param)
+int		close_window(void *param)
 {
-    (void)param;
-    exit(0);
+	(void)param;
+	exit(0);
 }
