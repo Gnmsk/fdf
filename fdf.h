@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 16:13:22 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 16:58:29 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define FDF_H
 
 # define BUFF_SIZE 20
-# define WIDTH 2000
-# define HIGHT 2000
+# define WIDTH 1000
+# define HIGHT 1000
 # define NAME "fdf"
 # define ISO 30
 # define ZOOM 25
@@ -66,6 +66,7 @@ typedef	struct		s_mega
 	t_point				min_max_z;
 	int					max_;
 	t_point				offset;
+	t_point				shift;
 	int					zoom;
 	void				*img;
 	unsigned int		*data_adress;
@@ -107,11 +108,9 @@ void				gradient(t_mega *megastruct);
 void				iso(t_point *p, t_point *offset);
 void				rotation(t_mega *megastruct);
 
-void				shift_x(t_mega *megastruct, int step);
-void				shift_y(t_mega *megastruct, int step);
-void				zoom(t_mega *megastruct, int key);
-void				scaling(t_mega *megastruct);
-void				zoom_base(t_mega *megastruct, double zoom);
+void				shift_xy(t_mega *megastruct, int step);
+void				shift(t_mega *megastructura);
+void				zoom(t_mega *megastruct, double zoom);
 
 void				interface(t_mega *megastructura);
 void				display_map(t_mega *megastructura);

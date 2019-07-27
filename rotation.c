@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 19:50:43 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 16:22:43 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 16:59:27 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,52 +48,28 @@ void	rotation(t_mega *megastruct)
 	megastruct->proj = 1;
 }
 
-void	shift_x(t_mega *megastruct, int key)
+void	shift_xy(t_mega *megastruct, int key)
 {
 	int i;
 	int step;
 
 	i = 0;
-	step = (key == 123) ? -4 : 4;
-	while (i < megastruct->max_)
-		megastruct->iso_coords[i++]->x += step;
-}
-
-void	shift_y(t_mega *megastruct, int key)
-{
-	int i;
-	int step;
-
-	i = 0;
-	step = (key == 125) ? 4 : -4;
-	while (i < megastruct->max_)
-		megastruct->iso_coords[i++]->y += step;
-}
-
-void	zoom(t_mega *megastruct, int key)
-{
-	int i;
-
-	i = 0;
-	while (i < megastruct->max_)
+	step = (key == 123 || key == 126) ? -4 : 4;
+	if (key == 123 || key == 124)
 	{
-		if (key == 69)
-		{
-			megastruct->iso_coords[i]->y *= 2;
-			megastruct->iso_coords[i]->x *= 2;
-			megastruct->iso_coords[i]->z *= 2;
-		}
-		else if (key == 78)
-		{
-			megastruct->iso_coords[i]->y /= 2;
-			megastruct->iso_coords[i]->x /= 2;
-			megastruct->iso_coords[i]->z /= 2;
-		}
-		i++;
+		while (i < megastruct->max_)
+			megastruct->iso_coords[i++]->x += step;
+		megastruct->shift.x += ((key == 123) ? -4 : 4);
+	}
+	else if (key == 125 || key == 126)
+	{
+		while (i < megastruct->max_)
+			megastruct->iso_coords[i++]->y += step;
+		megastruct->shift.y += ((key == 125) ? 4 : -4);
 	}
 }
 
-void	zoom_base(t_mega *megastruct, double zoom)
+void	zoom(t_mega *megastruct, double zoom)
 {
 	int i;
 
@@ -109,3 +85,15 @@ void	zoom_base(t_mega *megastruct, double zoom)
 	megastruct->min_max_z.y *= zoom;
 }
 
+void	shift(t_mega *megastruct)
+{
+	int i;
+
+	i = 0;
+	while (i < megastruct->max_)
+	{
+		megastruct->iso_coords[i]->x += megastruct->shift.x;
+		megastruct->iso_coords[i]->y += megastruct->shift.y;
+		i++;
+	}
+}
