@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 22:03:08 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 10:58:28 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 10:59:03 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void			interface(t_mega *megastructura)
 {
 	mlx_string_put(megastructura->discriptor, megastructura->win, 0, 0,
 	0xFF, "left-right-up-down for move on x/y/z axis");
-	mlx_string_put(megastructura->discriptor, megastructura->win, 0, 0,
+	mlx_string_put(megastructura->discriptor, megastructura->win, 0, 25,
 	0xFF, " + or - for zoom");
 }
 
