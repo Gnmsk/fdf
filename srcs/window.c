@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 22:03:08 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 20:42:05 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 20:47:09 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	interface(t_mega *megastructura)
 {
 	mlx_string_put(megastructura->discriptor, megastructura->win, 10, 5,
-	0xFFF, "left-right-up-down for move on x/y/z axis");
+	0xFFF, " left-right-up-down for move on x/y/z axis");
 	mlx_string_put(megastructura->discriptor, megastructura->win, 10, 30,
 	0xFFF, " + or - for zoom");
 	mlx_string_put(megastructura->discriptor, megastructura->win, 10, 55,
@@ -24,6 +24,8 @@ void	interface(t_mega *megastructura)
 	0xFFF, " Press 1 - 6 to rotate");
 	mlx_string_put(megastructura->discriptor, megastructura->win, 10, 105,
 	0xFFF, " Press ESCAPE to exit");
+	mlx_string_put(megastructura->discriptor, megastructura->win, 10, 130,
+	0xFFF, " 0 - default state");
 }
 
 void	put_pixel(int x, int y, int color, t_mega *megastruct)
@@ -52,7 +54,7 @@ void	display_map(t_mega *megastruct)
 	interface(megastruct);
 	draw(megastruct);
 	mlx_put_image_to_window(megastruct->discriptor, megastruct->win,
-	megastruct->img, 0, 140);
+	megastruct->img, 0, 150);
 	fill_backgound(0, megastruct);
 }
 

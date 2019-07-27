@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/27 18:24:39 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 19:56:59 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 20:47:04 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	centre(t_mega *megastruct)
 	{
 		megastruct->iso_coords[i]->x += (WIDTH -
 		(megastruct->max_x * megastruct->zoom)) / 2;
-		megastruct->iso_coords[i]->y += (-140) + (HIGHT -
+		megastruct->iso_coords[i]->y += (-150) + (HIGHT -
 		(megastruct->max_y * megastruct->zoom)) / 2;
 		if (megastruct->proj == 1)
 		{
