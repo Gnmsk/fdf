@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:15:13 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 16:22:18 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 16:23:55 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	keyboard(int key, t_mega *megastruct)
 	if (key == 49)
 	{
 		megastruct->iso_coords = copy_structure(megastruct);
+		zoom_base(megastruct, megastruct->zoom);
 		if (megastruct->proj == 1)
 			megastruct->proj = 0;
 		else if (megastruct->proj == 0)
