@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 20:44:37 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 21:16:00 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 
 # define RED 0x0F00F0F
 # define YELLOW 0xFCF75F
-
 
 # include "libft/libft.h"
 # include "mlx.h"

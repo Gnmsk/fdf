@@ -6,13 +6,13 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:45 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 20:41:49 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 21:16:52 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-t_stroka		*stroka_new(char **content)
+t_stroka	*stroka_new(char **content)
 {
 	t_stroka	*l;
 
@@ -33,7 +33,7 @@ void		stroka_push_front(t_stroka **list, char **data)
 		(*list)->next = first;
 }
 
-void	stroka_reverse(t_stroka **begin_list)
+void		stroka_reverse(t_stroka **begin_list)
 {
 	t_stroka *third;
 	t_stroka *second;
@@ -56,7 +56,7 @@ void	stroka_reverse(t_stroka **begin_list)
 	*begin_list = second;
 }
 
-void	copy_point(t_point *d, t_point *s)
+void		copy_point(t_point *d, t_point *s)
 {
 	d->x = s->x;
 	d->y = s->y;
