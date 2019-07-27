@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 22:03:08 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 17:10:41 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 17:39:59 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	interface(t_mega *megastructura)
 	0xFF, "left-right-up-down for move on x/y/z axis");
 	mlx_string_put(megastructura->discriptor, megastructura->win, 0, 25,
 	0xFF, " + or - for zoom");
+	mlx_string_put(megastructura->discriptor, megastructura->win, 0, 50,
+	0xFF, " Press SPACE for changing projection");
 }
 
 void	put_pixel(int x, int y, int color, t_mega *megastruct)
@@ -46,7 +48,7 @@ void	display_map(t_mega *megastruct)
 	interface(megastruct);
 	draw(megastruct);
 	mlx_put_image_to_window(megastruct->discriptor, megastruct->win,
-	megastruct->img, 0, 55);
+	megastruct->img, 0, 75);
 	fill_backgound(0, megastruct);
 }
 
