@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 22:03:08 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 15:47:49 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 17:07:18 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,10 @@ void	display_map(t_mega *megastruct)
 	mlx_put_image_to_window(megastruct->discriptor, megastruct->win,
 	megastruct->img, 0, 55);
 	fill_backgound(0, megastruct);
+}
+
+int close_window(void *param)
+{
+    (void)param;
+    exit(0);
 }
