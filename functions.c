@@ -47,6 +47,35 @@ char	*fdf_cords_color(t_stroka *tmp, int size)
 	return (cords);
 }
 
+void	iso(t_point *p, t_point *offset)
+{
+	int previous_x;
+	int previous_y;
+
+	previous_x = p->x;
+	previous_y = p->y;
+	p->x = (previous_x - previous_y) * cos(0.523599);
+	p->y = -(p->z) + (previous_x + previous_y) * sin(0.523599);
+	offset->x = (offset->x > p->x) ? p->x : offset->x;
+	offset->y = (offset->y > p->y) ? p->y : offset->y;
+}
+
+void	rotation(t_mega *megastruct)
+{
+	int i;
+
+	i = 0;
+	while (i < megastruct->max_)
+		iso(megastruct->coords[i++], &megastruct->offset);
+	i = 0;
+	while (i < megastruct->max_)
+	{
+		megastruct->coords[i]->x -= megastruct->offset.x;
+		megastruct->coords[i]->x += megastruct->offset.z;
+		megastruct->coords[i]->y -= megastruct->offset.y;
+		megastruct->coords[i++]->y += megastruct->offset.color;
+	}
+}
 
 // void	draw_line(int x1, int y1, int x2, int y2, int var)
 // {

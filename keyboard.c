@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:15:13 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 15:21:28 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 15:22:57 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	keyboard(int key, t_mega *megastruct)
 		if (megastruct->proj == 1)
 			megastruct->proj = 0;
 		else if (megastruct->proj == 0)
-			rotation2(megastruct);
+			rotation(megastruct);
 	}
 	display_map(megastruct);
 	return (0);
