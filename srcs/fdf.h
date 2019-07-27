@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 19:56:22 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 20:37:54 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,9 @@ typedef	struct		s_mega
 	int					size_line;
 	int					endian;
 }					t_mega;
+
+void				valid(t_mega *megastruct);
+void				valid_data(char *str);
 
 t_stroka			*stroka_new(char **content);
 void				stroka_push_front(t_stroka **list, char **data);

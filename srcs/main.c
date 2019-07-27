@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:16:09 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 20:01:47 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 20:42:16 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,33 @@ void	pizdec(char i)
 void	zbs(void)
 {
 	exit(0);
+}
+
+void	valid(t_mega *megastruct)
+{
+	int i;
+
+	i = 0;
+	while (megastruct->coords && megastruct->coords[i])
+	{
+		if (i >= megastruct->size)
+			pizdec('g');
+		i++;
+	}
+	if (i != megastruct->size)
+		pizdec('g');
+}
+
+void	valid_data(char *data)
+{
+	int i;
+
+	i = 0;
+	while (data && data[i])
+	{
+		if (!(ft_isdigit(data[i])) || !(ft_isalpha(data[i])) || \
+					data[i] != ' ' || data[i] != '\n')
+			pizdec('g');
+		i++;
+	}
 }

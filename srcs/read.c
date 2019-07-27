@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:23 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 19:37:06 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 20:42:31 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	fdf_read(t_mega *megastruct)
 	megastruct->size = megastruct->max_y * megastruct->max_x;
 	ft_strdel(&argv);
 	megastruct->coords = fdf_cords_point(tmp, megastruct);
+	valid(megastruct);
 	default_state(megastruct);
 }
 
@@ -43,6 +44,7 @@ void	set_color(char *data, t_point *cord, int zoom)
 	char	**row;
 	int		i;
 
+	valid_data(data);
 	if (ft_strchr(data, ','))
 	{
 		row = ft_strsplit(data, ',');
