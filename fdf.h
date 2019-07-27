@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 12:55:43 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 13:44:57 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,15 @@ void				gradient(t_mega *megastruct);
 
 void				iso(t_point *p, t_point *offset);
 void				rotation(t_mega *megastruct);
+void				iso2(t_point *p, t_point *offset);
+void				rotation2(t_mega *megastruct);
+
 
 void				shift_x(t_mega *megastruct, int step);
 void				shift_y(t_mega *megastruct, int step);
 void				zoom(t_mega *megastruct, int key);
+void				scaling(t_mega *megastruct);
 
 void				interface(t_mega *megastructura);
+void				display_map(t_mega *megastructura);
 #endif

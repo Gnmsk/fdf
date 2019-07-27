@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 19:50:43 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 12:53:17 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 13:36:37 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,36 @@ void	rotation(t_mega *megastruct)
 	i = 0;
 	while (i < megastruct->max_)
 		iso(megastruct->coords[i++], &megastruct->offset);
+	i = 0;
+	while (i < megastruct->max_)
+	{
+		megastruct->coords[i]->x -= megastruct->offset.x;
+		megastruct->coords[i]->x += megastruct->offset.z;
+		megastruct->coords[i]->y -= megastruct->offset.y;
+		megastruct->coords[i++]->y += megastruct->offset.color;
+	}
+}
+
+void	iso2(t_point *p, t_point *offset)
+{
+	int previous_x;
+	int previous_y;
+
+	previous_x = p->x;
+	previous_y = p->y;
+	p->x = (previous_x - previous_y) * cos(0);
+	p->y = -(p->z) + (previous_x + previous_y) * sin(1);
+	offset->x = (offset->x > p->x) ? p->x : offset->x;
+	offset->y = (offset->y > p->y) ? p->y : offset->y;
+}
+
+void	rotation2(t_mega *megastruct)
+{
+	int i;
+
+	i = 0;
+	while (i < megastruct->max_)
+		iso2(megastruct->coords[i++], &megastruct->offset);
 	i = 0;
 	while (i < megastruct->max_)
 	{
@@ -85,4 +115,20 @@ void	zoom(t_mega *megastruct, int key)
 		}
 		i++;
 	}
+}
+
+void	scaling(t_mega *megastruct)
+{
+	int i;
+
+	i = 0;
+	while (i < megastruct->max_)
+	{
+		megastruct->coords[i]->x *= megastruct->zoom;
+		megastruct->coords[i]->y *= megastruct->zoom;
+		megastruct->coords[i]->z *= megastruct->zoom;
+		i++;
+	}
+	megastruct->min_max_z.x *= megastruct->zoom;
+	megastruct->min_max_z.y *= megastruct->zoom;
 }
