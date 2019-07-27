@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:23 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 12:50:26 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 12:55:40 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	set_color(char *data, t_point *cord, int zoom)
 {
 	char	**row;
 	int		i;
-
 
 	if (ft_strchr(data, ','))
 	{

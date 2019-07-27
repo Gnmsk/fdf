@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 12:53:24 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 12:55:43 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # define NAME "fdf"
 # define ISO 30
 
-# define STARTCOLOR 0x0F00F0F
-# define ENDCOLOR 0xFCF75F
+# define RED 0x0F00F0F
+# define YELLOW 0xFCF75F
 
 
 # include "libft/libft.h"

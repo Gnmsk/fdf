@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 18:55:28 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/26 21:59:24 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 12:55:05 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,6 @@ void	gradient(t_mega *megastruct)
 	{
 		pct = percent(megastruct->min_max_z.x, megastruct->min_max_z.y,
 		megastruct->coords[i]->z);
-		megastruct->coords[i++]->color = color(STARTCOLOR, ENDCOLOR, pct);
+		megastruct->coords[i++]->color = color(RED, YELLOW, pct);
 	}
 }
