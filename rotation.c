@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 19:50:43 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/26 21:50:39 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 10:56:51 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,24 +42,47 @@ void	rotation(t_mega *megastruct)
 	}
 }
 
-void	shift_x(t_mega *megastruct, int step)
+void	shift_x(t_mega *megastruct, int key)
 {
 	int i;
+	int step;
 
 	i = 0;
+	step = (key == 123) ? -4 : 4;
 	while (i < megastruct->max_)
-	{
 		megastruct->coords[i++]->x += step;
-	}
 }
 
-void	shift_y(t_mega *megastruct, int step)
+void	shift_y(t_mega *megastruct, int key)
+{
+	int i;
+	int step;
+
+	i = 0;
+	step = (key == 125) ? 4 : -4;
+	while (i < megastruct->max_)
+		megastruct->coords[i++]->y += step;
+}
+
+void	zoom(t_mega *megastruct, int key)
 {
 	int i;
 
 	i = 0;
 	while (i < megastruct->max_)
 	{
-		megastruct->coords[i++]->y += step;
+		if (key == 69)
+		{
+			megastruct->coords[i]->y *= 2;
+			megastruct->coords[i]->x *= 2;
+			megastruct->coords[i]->z *= 2;
+		}
+		else if (key == 78)
+		{
+			megastruct->coords[i]->y /= 2;
+			megastruct->coords[i]->x /= 2;
+			megastruct->coords[i]->z /= 2;
+		}
+		i++;
 	}
 }

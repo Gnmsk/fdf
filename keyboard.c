@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:15:13 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/26 22:23:19 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 10:56:35 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,12 @@ int	keyboard(int key, t_mega *megastruct)
 {
 	if (key == 53)
 		exit(0);
-	if (key == 123)
-		shift_x(megastruct, -4);
-	if (key == 124)
-		shift_x(megastruct, 4);
-	if (key == 125)
-		shift_y(megastruct, 4);
-	if (key == 126)
-		shift_y(megastruct, -4);
-	if (key == 69)
-		megastruct->zoom += 20;
+	if (key == 123 || key == 124)
+		shift_x(megastruct, key);
+	if (key == 125 || key == 126)
+		shift_y(megastruct, key);
+	if (key == 69 || key == 78)
+		zoom(megastruct, key);
 	fill_backgound(0, megastruct);
 	interface(megastruct);
 	draw(megastruct);

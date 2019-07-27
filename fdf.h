@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/26 22:05:53 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 10:51:31 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ void				rotation(t_mega *megastruct);
 
 void				shift_x(t_mega *megastruct, int step);
 void				shift_y(t_mega *megastruct, int step);
+void				zoom(t_mega *megastruct, int key);
 
 void				interface(t_mega *megastructura);
 #endif
