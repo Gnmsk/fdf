@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:23 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 12:56:39 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 13:12:08 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ void	fdf_read(t_mega *megastruct)
 		megastruct->max_y++;
 	}
 	stroka_reverse(&tmp);
-	megastruct->max_x = ft_ncounter(argv, ' ') + (int)(argv[0] != ' ') -
-	(int)(argv[ft_strlen(argv) - 1] == ' ');
+	megastruct->max_x = (int)ft_arrlen(splitted_argv);
 	megastruct->max_ = megastruct->max_y * megastruct->max_x;
 	ft_strdel(&argv);
 	megastruct->coords = fdf_cords_point(tmp, megastruct);
