@@ -6,14 +6,21 @@
 #    By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/18 14:18:22 by tkelsie           #+#    #+#              #
-#    Updated: 2019/07/26 22:08:51 by tkelsie          ###   ########.fr        #
+#    Updated: 2019/07/27 17:49:53 by tkelsie          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 MLX = -L./minilibx_macos -lmlx -framework OpenGL -framework AppKit
 FLAGS = -Wall -Wextra -Werror 
-SRCS = main.c read.c keyboard.c struct_create.c draw.c coloring.c rotation.c window.c
+SRCS = ./srcs/main.c \
+./srcs/read.c \
+./srcs/keyboard.c \
+./srcs/struct_create.c \
+./srcs/draw.c \
+./srcs/coloring.c \
+./srcs/rotation.c \
+./srcs/window.c
 
 all: 
 	$(NAME)
@@ -24,7 +31,7 @@ $(NAME):
 	gcc $(FLAGS) -c 
 
 mac:
-	gcc -o fdf $(SRCS) libft/libft.a -L./minilibx_macos -lmlx -framework OpenGL -framework AppKit
+	gcc -o fdf $(SRCS) ./srcs/libft/libft.a -L./minilibx_macos -lmlx -framework OpenGL -framework AppKit
 
 linux:
 	gcc -o linux $(SRCS) libft/libft.a -L/usr/X11/lib /usr/X11/lib/libmlx.a -lXext -lX11
