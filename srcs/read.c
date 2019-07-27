@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:23 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 19:21:04 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 19:37:06 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	fdf_read(t_mega *megastruct)
 	}
 	stroka_reverse(&tmp);
 	megastruct->max_x = (int)ft_arrlen(splitted_argv);
-	megastruct->max_ = megastruct->max_y * megastruct->max_x;
+	megastruct->size = megastruct->max_y * megastruct->max_x;
 	ft_strdel(&argv);
 	megastruct->coords = fdf_cords_point(tmp, megastruct);
 	default_state(megastruct);
@@ -82,7 +82,7 @@ t_point	**fdf_cords_point(t_stroka *tmp, t_mega *megastruct)
 	int			k;
 	int			y;
 
-	if (!(cords = (t_point **)malloc(sizeof(t_point *) * megastruct->max_)))
+	if (!(cords = (t_point **)malloc(sizeof(t_point *) * megastruct->size)))
 		pizdec('e');
 	k = 0;
 	y = 0;

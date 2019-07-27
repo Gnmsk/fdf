@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 22:03:08 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 19:09:43 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 19:48:56 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 void	interface(t_mega *megastructura)
 {
-	mlx_string_put(megastructura->discriptor, megastructura->win, 10, 0,
-	0xFF, "left-right-up-down for move on x/y/z axis");
-	mlx_string_put(megastructura->discriptor, megastructura->win, 1, 25,
-	0xFF, " + or - for zoom");
-	mlx_string_put(megastructura->discriptor, megastructura->win, 10, 50,
-	0xFF, " Press SPACE to change projection");
-	mlx_string_put(megastructura->discriptor, megastructura->win, 10, 75,
-	0xFF, " Press 1 - 6 to rotate");
+	mlx_string_put(megastructura->discriptor, megastructura->win, 10, 5,
+	0xFFF, "left-right-up-down for move on x/y/z axis");
+	mlx_string_put(megastructura->discriptor, megastructura->win, 10, 30,
+	0xFFF, " + or - for zoom");
+	mlx_string_put(megastructura->discriptor, megastructura->win, 10, 55,
+	0xFFF, " Press SPACE to change projection");
+	mlx_string_put(megastructura->discriptor, megastructura->win, 10, 80,
+	0xFFF, " Press 1 - 6 to rotate");
+	mlx_string_put(megastructura->discriptor, megastructura->win, 10, 105,
+	0xFFF, " Press ESCAPE to exit");
 }
 
 void	put_pixel(int x, int y, int color, t_mega *megastruct)
@@ -39,7 +41,7 @@ void	fill_backgound(int color, t_mega *megastruct)
 	{
 		x = 0;
 		while (x < WIDTH)
-			megastruct->data_adress[y * WIDTH + x++] = color;
+			put_pixel(x++, y, color, megastruct);
 		y++;
 	}
 }
@@ -50,7 +52,7 @@ void	display_map(t_mega *megastruct)
 	interface(megastruct);
 	draw(megastruct);
 	mlx_put_image_to_window(megastruct->discriptor, megastruct->win,
-	megastruct->img, 0, 105);
+	megastruct->img, 0, 140);
 	fill_backgound(0, megastruct);
 }
 

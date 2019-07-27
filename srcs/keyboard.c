@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:15:13 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 19:21:57 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 19:25:22 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,15 @@ void	zooming(int key, t_mega *megastruct)
 	megastruct->iso_coords = copy_structure(megastruct);
 	if (key == 69)
 		megastruct->zoom += 3;
-	else if (key == 78)
-		if (megastruct->zoom > 3)
-			megastruct->zoom -= 3;
+	else if (key == 78 && megastruct->zoom > 3)
+		megastruct->zoom -= 3;
 	zoom(megastruct, megastruct->zoom);
 	if (megastruct->proj == 1)
 		rotation(megastruct);
 	centre(megastruct);
 }
 
-int	keyboard(int key, t_mega *megastruct)
+int		keyboard(int key, t_mega *megastruct)
 {
 	if (key == 53)
 		exit(0);

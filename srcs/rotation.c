@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 19:50:43 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 18:49:29 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 19:44:38 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	iso(t_point *p, t_point *offset)
 	offset->y = (offset->y > p->y) ? p->y : offset->y;
 }
 
-static void			rotation_x(t_point *p, t_mega *megastruct)
+void	rotation_x(t_point *p, t_mega *megastruct)
 {
 	int				previous_y;
 
@@ -34,7 +34,7 @@ static void			rotation_x(t_point *p, t_mega *megastruct)
 	p->z = -sin(megastruct->alpha) * previous_y + cos(megastruct->alpha) * p->z;
 }
 
-static void			rotation_y(t_point *p, t_mega *megastruct)
+void	rotation_y(t_point *p, t_mega *megastruct)
 {
 	int				previous_x;
 
@@ -43,7 +43,7 @@ static void			rotation_y(t_point *p, t_mega *megastruct)
 	p->z = -previous_x * sin(megastruct->beta) + p->z * cos(megastruct->beta);
 }
 
-static void			rotation_z(t_point *p, t_mega *megastruct)
+void	rotation_z(t_point *p, t_mega *megastruct)
 {
 	int				previous_x;
 	int				previous_y;
@@ -65,7 +65,7 @@ void	rotation(t_mega *megastruct)
 	megastruct->offset.y = 0;
 	megastruct->offset.z = 0;
 	megastruct->offset.color = 0;
-	while (i < megastruct->max_)
+	while (i < megastruct->size)
 	{
 		rotation_x(megastruct->iso_coords[i], megastruct);
 		rotation_y(megastruct->iso_coords[i], megastruct);
@@ -73,7 +73,7 @@ void	rotation(t_mega *megastruct)
 		iso(megastruct->iso_coords[i++], &megastruct->offset);
 	}
 	i = 0;
-	while (i < megastruct->max_)
+	while (i < megastruct->size)
 	{
 		megastruct->iso_coords[i]->x -= megastruct->offset.x;
 		megastruct->iso_coords[i]->x += megastruct->offset.z;

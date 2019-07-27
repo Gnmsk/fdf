@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 18:55:28 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 12:55:05 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 19:37:53 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	gradient(t_mega *megastruct)
 	double	pct;
 
 	i = 0;
-	while (i < megastruct->max_)
+	while (i < megastruct->size)
 	{
 		pct = percent(megastruct->min_max_z.x, megastruct->min_max_z.y,
 		megastruct->coords[i]->z);
