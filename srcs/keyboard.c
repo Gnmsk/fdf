@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:15:13 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 17:40:05 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 19:13:08 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,28 @@ int	keyboard(int key, t_mega *megastruct)
 		shift(megastruct);
 		centre(megastruct);
 	}
+	if (key >= 83 && key <= 88)
+	{
+		if (key == 83)
+			megastruct->alpha -= 0.05;
+		if (key == 84)
+			megastruct->alpha += 0.05;
+		if (key == 85)
+			megastruct->beta -= 0.05;
+		if (key == 86)
+			megastruct->beta += 0.05;
+		if (key == 87)
+			megastruct->gamma -= 0.05;
+		if (key == 88)
+			megastruct->gamma += 0.05;
+		megastruct->iso_coords = copy_structure(megastruct);
+		zoom(megastruct, megastruct->zoom);
+		rotation(megastruct);
+		shift(megastruct);
+		centre(megastruct);
+	}
+	if (key == 82)
+		default_state(megastruct);
 	display_map(megastruct);
 	return (0);
 }

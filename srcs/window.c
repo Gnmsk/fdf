@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/26 22:03:08 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 17:40:37 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 19:09:43 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 void	interface(t_mega *megastructura)
 {
-	mlx_string_put(megastructura->discriptor, megastructura->win, 0, 0,
+	mlx_string_put(megastructura->discriptor, megastructura->win, 10, 0,
 	0xFF, "left-right-up-down for move on x/y/z axis");
-	mlx_string_put(megastructura->discriptor, megastructura->win, 0, 25,
+	mlx_string_put(megastructura->discriptor, megastructura->win, 1, 25,
 	0xFF, " + or - for zoom");
-	mlx_string_put(megastructura->discriptor, megastructura->win, 0, 50,
+	mlx_string_put(megastructura->discriptor, megastructura->win, 10, 50,
 	0xFF, " Press SPACE to change projection");
+	mlx_string_put(megastructura->discriptor, megastructura->win, 10, 75,
+	0xFF, " Press 1 - 6 to rotate");
 }
 
 void	put_pixel(int x, int y, int color, t_mega *megastruct)
@@ -48,7 +50,7 @@ void	display_map(t_mega *megastruct)
 	interface(megastruct);
 	draw(megastruct);
 	mlx_put_image_to_window(megastruct->discriptor, megastruct->win,
-	megastruct->img, 0, 75);
+	megastruct->img, 0, 105);
 	fill_backgound(0, megastruct);
 }
 

@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 19:50:43 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 18:13:57 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 18:49:29 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,37 @@ void	iso(t_point *p, t_point *offset)
 	offset->y = (offset->y > p->y) ? p->y : offset->y;
 }
 
+static void			rotation_x(t_point *p, t_mega *megastruct)
+{
+	int				previous_y;
+
+	previous_y = p->y;
+	p->y = cos(megastruct->alpha) * previous_y + sin(megastruct->alpha) * p->z;
+	p->z = -sin(megastruct->alpha) * previous_y + cos(megastruct->alpha) * p->z;
+}
+
+static void			rotation_y(t_point *p, t_mega *megastruct)
+{
+	int				previous_x;
+
+	previous_x = p->x;
+	p->x = previous_x * cos(megastruct->beta) + p->z * sin(megastruct->beta);
+	p->z = -previous_x * sin(megastruct->beta) + p->z * cos(megastruct->beta);
+}
+
+static void			rotation_z(t_point *p, t_mega *megastruct)
+{
+	int				previous_x;
+	int				previous_y;
+
+	previous_x = p->x;
+	previous_y = p->y;
+	p->x = cos(megastruct->gamma) * previous_x \
+		- sin(megastruct->gamma) * previous_y;
+	p->y = sin(megastruct->gamma) * previous_x \
+		+ cos(megastruct->gamma) * previous_y;
+}
+
 void	rotation(t_mega *megastruct)
 {
 	int i;
@@ -35,7 +66,12 @@ void	rotation(t_mega *megastruct)
 	megastruct->offset.z = 0;
 	megastruct->offset.color = 0;
 	while (i < megastruct->max_)
+	{
+		rotation_x(megastruct->iso_coords[i], megastruct);
+		rotation_y(megastruct->iso_coords[i], megastruct);
+		rotation_z(megastruct->iso_coords[i], megastruct);
 		iso(megastruct->iso_coords[i++], &megastruct->offset);
+	}
 	i = 0;
 	while (i < megastruct->max_)
 	{
@@ -45,77 +81,4 @@ void	rotation(t_mega *megastruct)
 		megastruct->iso_coords[i++]->y += megastruct->offset.color;
 	}
 	megastruct->proj = 1;
-}
-
-void	shift_xy(t_mega *megastruct, int key)
-{
-	int i;
-	int step;
-
-	i = 0;
-	step = (key == 123 || key == 126) ? -4 : 4;
-	if (key == 123 || key == 124)
-	{
-		while (i < megastruct->max_)
-			megastruct->iso_coords[i++]->x += step;
-		megastruct->shift.x += ((key == 123) ? -4 : 4);
-	}
-	else if (key == 125 || key == 126)
-	{
-		while (i < megastruct->max_)
-			megastruct->iso_coords[i++]->y += step;
-		megastruct->shift.y += ((key == 125) ? 4 : -4);
-	}
-}
-
-void	zoom(t_mega *megastruct, double zoom)
-{
-	int i;
-
-	i = 0;
-	while (i < megastruct->max_)
-	{
-		megastruct->iso_coords[i]->x *= zoom;
-		megastruct->iso_coords[i]->y *= zoom;
-		megastruct->iso_coords[i]->z *= zoom;
-		i++;
-	}
-	megastruct->min_max_z.x *= zoom;
-	megastruct->min_max_z.y *= zoom;
-}
-
-void	shift(t_mega *megastruct)
-{
-	int i;
-
-	i = 0;
-	while (i < megastruct->max_)
-	{
-		megastruct->iso_coords[i]->x += megastruct->shift.x;
-		megastruct->iso_coords[i]->y += megastruct->shift.y;
-		i++;
-	}
-}
-
-void	centre(t_mega *megastruct)
-{
-	int i;
-
-	i = 0;
-	while (i < megastruct->max_)
-	{
-		megastruct->iso_coords[i]->x += (WIDTH -
-		(megastruct->max_x * megastruct->zoom)) / 2;
-		megastruct->iso_coords[i]->y += (HIGHT -
-		(megastruct->max_y * megastruct->zoom)) / 2;
-		if (megastruct->proj == 1)
-		{
-			megastruct->iso_coords[i]->x += ((megastruct->coords[i]->x -
-			megastruct->coords[i]->y) * cos(0.523599)) / 2;
-			megastruct->iso_coords[i]->y += ((megastruct->coords[i]->x +
-			megastruct->coords[i]->y) * sin(0.523599)) / 2 -
-			megastruct->iso_coords[i]->z;
-		}
-		i++;
-	}
 }

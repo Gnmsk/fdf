@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 15:51:44 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 17:50:02 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 18:25:05 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,3 +59,4 @@ void	draw_line(t_point a, t_point b, t_mega megastruct)
 		error[1] < delta.x ? cur.y += sign[1] : 0;
 	}
 }
+

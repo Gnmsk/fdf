@@ -6,7 +6,7 @@
 #    By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/18 14:18:22 by tkelsie           #+#    #+#              #
-#    Updated: 2019/07/27 17:49:53 by tkelsie          ###   ########.fr        #
+#    Updated: 2019/07/27 18:25:26 by tkelsie          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCS = ./srcs/main.c \
 ./srcs/draw.c \
 ./srcs/coloring.c \
 ./srcs/rotation.c \
-./srcs/window.c
+./srcs/window.c \
+./srcs/movement.c \
 
 all: 
 	$(NAME)

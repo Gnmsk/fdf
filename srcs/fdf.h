@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 17:19:29 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 19:11:56 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,9 @@ typedef	struct		s_mega
 	int					size_line;
 	int					endian;
 	int					proj;
-
+	double				alpha;
+	double				beta;
+	double				gamma;
 }					t_mega;
 
 int					get_next_line(const int fd, char **line);
@@ -109,6 +111,7 @@ void				gradient(t_mega *megastruct);
 void				iso(t_point *p, t_point *offset);
 void				rotation(t_mega *megastruct);
 
+void				default_state(t_mega *megastruct);
 void				shift_xy(t_mega *megastruct, int step);
 void				shift(t_mega *megastructura);
 void				zoom(t_mega *megastruct, double zoom);
