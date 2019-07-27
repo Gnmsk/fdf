@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 19:50:43 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 12:42:28 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 12:53:17 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,26 +83,6 @@ void	zoom(t_mega *megastruct, int key)
 			megastruct->coords[i]->x /= 2;
 			megastruct->coords[i]->z /= 2;
 		}
-		i++;
-	}
-}
-
-void	scaling(t_mega *megastruct)
-{
-	int i;
-	int key;
-
-	i = 0;
-	key = (megastruct->max_x > megastruct->max_) ?
-	megastruct->max_x : megastruct->max_y;
-	key = (key > megastruct->min_max_z.x) ? key : megastruct->min_max_z.x;
-	key = (key > megastruct->min_max_z.y) ? key : megastruct->min_max_z.y;
-	key = (WIDTH / key) / 4;
-	while (i < megastruct->max_)
-	{
-		megastruct->coords[i]->y *= key;
-		megastruct->coords[i]->x *= key;
-		megastruct->coords[i]->z *= key;
 		i++;
 	}
 }
