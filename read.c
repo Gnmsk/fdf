@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:23 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 12:55:40 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 12:56:39 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	fdf_read(t_mega *megastruct)
 	t_stroka	*tmp;
 
 	megastruct->max_y = 0;
-	megastruct->zoom = 5;
+	megastruct->zoom = 25;
 	while (get_next_line(megastruct->fd, &argv))
 	{
 		if (!(splitted_argv = ft_strsplit(argv, ' ')))
