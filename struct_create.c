@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:17:45 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/18 14:54:52 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 14:39:15 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,36 @@ void		stroka_reverse(t_stroka **begin_list)
 		second->next = first;
 	}
 	*begin_list = second;
+}
+
+void	copy_point(t_point *d, t_point *s)
+{
+	d->x = s->x;
+	d->y = s->y;
+	d->z = s->z;
+	d->color = s->color;
+}
+
+t_point	**copy_structure(t_mega *megastruct)
+{
+	t_point	**source;
+	t_point	**dest;
+	t_point	**copy;
+	int 	i;
+
+	source = (t_point **)megastruct->coords;
+	if (!(copy = (t_point **)malloc(sizeof(t_point *) * megastruct->max_)))
+		pizdec('e');
+	dest = copy;
+	i = 0;
+	while (i < megastruct->max_)
+	{
+		if (!(copy[i] = (t_point *)malloc(sizeof(t_point))))
+			pizdec('f');
+		copy_point(copy[i], source[i]);
+		// printf("%d %d %d %d\n", copy[i]->x, copy[i]->y, copy[i]->z, copy[i]->color);
+		i++;
+	}
+	megastruct->coords = source;
+	return (dest);
 }

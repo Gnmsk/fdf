@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 13:44:57 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 14:09:09 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,9 @@ void				zbs(void);
 t_stroka			*stroka_new(char **content);
 void				stroka_push_front(t_stroka **list, char **data);
 void				stroka_reverse(t_stroka **begin_list);
+
+void				copy_point(t_point *d, t_point *s);
+t_point				**copy_structure(t_mega *megastruct);
 t_point				**fdf_cords_point(t_stroka *tmp, t_mega *megastruct);
 void				draw(t_mega *megastruct);
 void				find_point_in_million(t_point cur, t_mega megastrct);

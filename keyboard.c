@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:15:13 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 13:48:05 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 14:48:01 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	keyboard(int key, t_mega *megastruct)
 		shift_y(megastruct, key);
 	if (key == 69 || key == 78)
 		zoom(megastruct, key);
-	if (key == 67)
+	if (key == 49)
 		rotation2(megastruct);
 	display_map(megastruct);
 	return (0);
