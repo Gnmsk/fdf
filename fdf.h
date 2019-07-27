@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 15:23:48 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 16:13:22 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define HIGHT 2000
 # define NAME "fdf"
 # define ISO 30
+# define ZOOM 25
 
 # define RED 0x0F00F0F
 # define YELLOW 0xFCF75F
@@ -110,7 +111,7 @@ void				shift_x(t_mega *megastruct, int step);
 void				shift_y(t_mega *megastruct, int step);
 void				zoom(t_mega *megastruct, int key);
 void				scaling(t_mega *megastruct);
-void				zoom_base(t_mega *megastruct);
+void				zoom_base(t_mega *megastruct, double zoom);
 
 void				interface(t_mega *megastructura);
 void				display_map(t_mega *megastructura);

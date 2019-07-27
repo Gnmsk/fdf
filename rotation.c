@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 19:50:43 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 15:23:35 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 16:22:43 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ void	rotation(t_mega *megastruct)
 	int i;
 
 	i = 0;
+	megastruct->offset.x = 0;
+	megastruct->offset.y = 0;
+	megastruct->offset.z = 0;
+	megastruct->offset.color = 0;
 	while (i < megastruct->max_)
 		iso(megastruct->iso_coords[i++], &megastruct->offset);
 	i = 0;
@@ -71,46 +75,37 @@ void	zoom(t_mega *megastruct, int key)
 	int i;
 
 	i = 0;
-	if (key == 69)
-		megastruct->zoom *= 2;
-	else if (key == 78)
-		megastruct->zoom /= 2;
 	while (i < megastruct->max_)
 	{
-		megastruct->iso_coords[i]->y *= megastruct->zoom;
-		megastruct->iso_coords[i]->x *= megastruct->zoom;
-		megastruct->iso_coords[i]->z *= megastruct->zoom;
+		if (key == 69)
+		{
+			megastruct->iso_coords[i]->y *= 2;
+			megastruct->iso_coords[i]->x *= 2;
+			megastruct->iso_coords[i]->z *= 2;
+		}
+		else if (key == 78)
+		{
+			megastruct->iso_coords[i]->y /= 2;
+			megastruct->iso_coords[i]->x /= 2;
+			megastruct->iso_coords[i]->z /= 2;
+		}
 		i++;
 	}
 }
 
-void	scaling(t_mega *megastruct)
+void	zoom_base(t_mega *megastruct, double zoom)
 {
 	int i;
 
 	i = 0;
 	while (i < megastruct->max_)
 	{
-		megastruct->coords[i]->x *= megastruct->zoom;
-		megastruct->coords[i]->y *= megastruct->zoom;
-		megastruct->coords[i]->z *= megastruct->zoom;
+		megastruct->iso_coords[i]->x *= zoom;
+		megastruct->iso_coords[i]->y *= zoom;
+		megastruct->iso_coords[i]->z *= zoom;
 		i++;
 	}
-	megastruct->min_max_z.x *= megastruct->zoom;
-	megastruct->min_max_z.y *= megastruct->zoom;
-}
-
-void	zoom_base(t_mega *megastruct)
-{
-	int i;
-
-	i = 0;
-	while (i < megastruct->max_)
-	{
-		megastruct->iso_coords[i]->x *= megastruct->zoom;
-		megastruct->iso_coords[i]->y *= megastruct->zoom;
-		megastruct->iso_coords[i]->z *= megastruct->zoom;
-		i++;
-	}
+	megastruct->min_max_z.x *= zoom;
+	megastruct->min_max_z.y *= zoom;
 }
 

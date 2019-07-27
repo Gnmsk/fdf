@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:15:13 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 15:22:57 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 16:22:18 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,18 @@ int	keyboard(int key, t_mega *megastruct)
 		shift_x(megastruct, key);
 	if (key == 125 || key == 126)
 		shift_y(megastruct, key);
-	// if (key == 69 || key == 78)
-	// 	zoom(megastruct, key);
+	if (key == 69 || key == 78)
+	{
+		megastruct->iso_coords = copy_structure(megastruct);
+		if (key == 69)
+			megastruct->zoom += 3;
+		else if (key == 78)
+			if (megastruct->zoom > 0)
+				megastruct->zoom -= 3;
+		zoom_base(megastruct, megastruct->zoom);
+		if (megastruct->proj == 1)
+			rotation(megastruct);
+	}
 	if (key == 49)
 	{
 		megastruct->iso_coords = copy_structure(megastruct);
