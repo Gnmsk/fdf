@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:16:09 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 17:20:25 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 17:38:10 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,4 @@ void	pizdec(char i)
 void	zbs(void)
 {
 	exit(0);
-}
-
-void		new_image(t_mega *megastruct)
-{
-	mlx_destroy_image(megastruct->discriptor, megastruct->img);
 }
