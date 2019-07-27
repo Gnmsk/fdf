@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:18:33 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 14:09:09 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 15:10:45 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef	struct		s_mega
 	int					bits_per_pixel;
 	int					size_line;
 	int					endian;
+	int					proj;
 
 }					t_mega;
 
@@ -112,6 +113,7 @@ void				shift_x(t_mega *megastruct, int step);
 void				shift_y(t_mega *megastruct, int step);
 void				zoom(t_mega *megastruct, int key);
 void				scaling(t_mega *megastruct);
+void				zoom_base(t_mega *megastruct);
 
 void				interface(t_mega *megastructura);
 void				display_map(t_mega *megastructura);

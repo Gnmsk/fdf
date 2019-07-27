@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 19:50:43 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 14:48:53 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 15:19:32 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	rotation2(t_mega *megastruct)
 		megastruct->iso_coords[i]->y += megastruct->offset.color;
 		i++;
 	}
+	megastruct->proj = 1;
 }
 
 void	shift_x(t_mega *megastruct, int key)
@@ -100,7 +101,6 @@ void	zoom(t_mega *megastruct, int key)
 	int i;
 
 	i = 0;
-	megastruct->iso_coords = copy_structure(megastruct);
 	if (key == 69)
 		megastruct->zoom *= 2;
 	else if (key == 78)
@@ -129,3 +129,18 @@ void	scaling(t_mega *megastruct)
 	megastruct->min_max_z.x *= megastruct->zoom;
 	megastruct->min_max_z.y *= megastruct->zoom;
 }
+
+void	zoom_base(t_mega *megastruct)
+{
+	int i;
+
+	i = 0;
+	while (i < megastruct->max_)
+	{
+		megastruct->iso_coords[i]->x *= megastruct->zoom;
+		megastruct->iso_coords[i]->y *= megastruct->zoom;
+		megastruct->iso_coords[i]->z *= megastruct->zoom;
+		i++;
+	}
+}
+
