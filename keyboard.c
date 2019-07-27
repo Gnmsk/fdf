@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:15:13 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/27 10:56:35 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 10:58:25 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	keyboard(int key, t_mega *megastruct)
 	interface(megastruct);
 	draw(megastruct);
 	mlx_put_image_to_window(megastruct->discriptor, megastruct->win,
-		megastruct->img, 0, 25);
+		megastruct->img, 0, 55);
 	fill_backgound(0, megastruct);
 	return (0);
 }

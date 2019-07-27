@@ -6,7 +6,7 @@
 /*   By: tkelsie <tkelsie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 14:16:09 by tkelsie           #+#    #+#             */
-/*   Updated: 2019/07/26 22:24:57 by tkelsie          ###   ########.fr       */
+/*   Updated: 2019/07/27 10:58:35 by tkelsie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		main(int ac, char **av)
 	interface(&megastruct);
 	draw(&megastruct);
 	mlx_put_image_to_window(megastruct.discriptor, megastruct.win,
-	megastruct.img, 0, 25);
+	megastruct.img, 0, 55);
 	mlx_hook(megastruct.win, 2, 0, keyboard, &megastruct);
 	mlx_loop(megastruct.discriptor);
 	zbs();
